@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-content: center; }
+  .container .content {
+    display: block;
+    width: 50vw;
+    padding-top: 2rem;
+    align-self: center; }
+
+/*# sourceMappingURL=app.css.map */

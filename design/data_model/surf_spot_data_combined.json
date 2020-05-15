@@ -1,6 +1,6 @@
 [
     {
-        "spot_id": 1,
+        "id": 1,
         "name":"Corbin",
         "desc":"description about the feature",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
@@ -486,7 +486,7 @@
 		"difficulty":"medium"
     },
     {
-        "spot_id": 2,
+        "id": 2,
         "name":"Dead Dog",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
@@ -972,7 +972,7 @@
 		"difficulty":"medium"
     },   
     {
-        "spot_id": 3,
+        "id": 3,
         "name":"Duplex",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
@@ -1458,7 +1458,7 @@
 		"difficulty":"medium"
     },
     {
-        "spot_id": 4,
+        "id": 4,
         "name":"Flower Power",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
@@ -1945,7 +1945,7 @@
 		"difficulty":"medium"
     },
     {
-        "spot_id": 5,
+        "id": 5,
         "name":"Mini Climax",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
@@ -2431,7 +2431,7 @@
 		"difficulty":"medium"
     },
     {
-        "spot_id": 6,
+        "id": 6,
         "name":"Sullivan",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
@@ -2917,7 +2917,7 @@
 		"difficulty":"medium"
     },
     {
-        "spot_id": 7,
+        "id": 7,
         "name":"Trailer Park",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
@@ -3403,7 +3403,7 @@
 		"difficulty":"medium"
     },
     {
-        "spot_id": 8,
+        "id": 8,
         "name":"Zoo",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],

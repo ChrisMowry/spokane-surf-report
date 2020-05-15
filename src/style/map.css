@@ -1,0 +1,11 @@
+.map-canvas {
+  height: 40vh;
+  width: 100%;
+  display: block;
+  background-color: #F00; }
+
+.hidden {
+  height: 0;
+  overflow: hidden; }
+
+/*# sourceMappingURL=map.css.map */

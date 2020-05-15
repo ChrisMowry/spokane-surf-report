@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Header from './components/header/Header';
+import Map from './components/map/Map';
+import './style/app.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            surfSpots: [],
+            mapVisible: false
+        }
+
+        this.toggleMapVisibility = this.toggleMapVisibility.bind(this);
+    }
+
+    toggleMapVisibility(self){
+        this.setState({mapVisible: !this.state.mapVisible})
+    }
+
+    render() {
+        return (
+            <div className='container'>
+                <Header mapVisible={this.state.mapVisible} toggleMapVisibility={this.toggleMapVisibility}/>
+                <div className='content'>
+                    <Map mapVisible={this.state.mapVisible} />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;

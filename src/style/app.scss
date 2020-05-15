@@ -1,0 +1,16 @@
+@import 'theme';
+
+.container{
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-content: center;
+
+    .content{
+        display: block;
+        width: 50vw;
+        padding-top: $head-height;
+        align-self: center;
+    }
+}
