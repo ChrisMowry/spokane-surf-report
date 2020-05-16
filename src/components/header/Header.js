@@ -19,7 +19,7 @@ import '../../style/header.css'
                 <img src={require("../../imgs/surf-spokane.svg")} alt="Spokane Surf Logo" />
                 <h1>Spokane Surf Report</h1>
                 <input id="map-button" className="map-button" type="checkbox" 
-                checked={this.props.mapVisible} onClick={this.handleClick}/>
+                checked={this.props.mapVisible} onClick={this.handleClick} readOnly />
 				<label htmlFor="map-button" className="map-button-display">
 					<h2>Map</h2>
                     <svg version="1.1" 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header';
-import Map from './components/map/Map';
+import MapContainer from './components/map/MapContainer';
 import './style/app.css';
+
 
 class App extends Component {
     
@@ -22,10 +23,10 @@ class App extends Component {
 
     render() {
         return (
-            <div className='container'>
+            <div>
                 <Header mapVisible={this.state.mapVisible} toggleMapVisibility={this.toggleMapVisibility}/>
                 <div className='content'>
-                    <Map mapVisible={this.state.mapVisible} />
+                    <MapContainer mapVisible={this.state.mapVisible} />
                 </div>
             </div>
         );

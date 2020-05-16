@@ -1,11 +1,26 @@
-.map-canvas{
-    height: 40vh;
-    width: 100%;
-    display: block;
-    background-color: #F00;
+.map-container{
+    position: relative;
+    height: 50vh;
+    width: 70vw;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #B2B2B2B2;
+    padding: 0;
+    margin: 0;
+    transition: all 0.5s;
+
+    .map{
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #B2B2B2B2;
+    }
+
 }
 
+
 .hidden{
-    height: 0;
-    overflow: hidden;
+    height: 0; 
 }
