@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header';
 import MapContainer from './components/map/MapContainer';
+import DataCardDeck from './components/data_cards/DataCardDeck';
 import './style/app.css';
 
 
@@ -21,12 +22,28 @@ class App extends Component {
         this.setState({mapVisible: !this.state.mapVisible})
     }
 
+    componentDidMount(){
+        // make api fetch here.
+        console.log('hello world!');
+
+        this.setState({
+            surfSpots: [
+                {id: 1},
+                {id: 2},
+                {id: 3},
+                {id: 4},
+                {id: 5}
+            ]
+        })
+    }
+
     render() {
         return (
-            <div>
+            <div className='container'>
                 <Header mapVisible={this.state.mapVisible} toggleMapVisibility={this.toggleMapVisibility}/>
                 <div className='content'>
-                    <MapContainer mapVisible={this.state.mapVisible} />
+                    <MapContainer spots={ this.state.surfSpots } mapVisible={ this.state.mapVisible } />
+                    <DataCardDeck spots={ this.state.surfSpots }/>
                 </div>
             </div>
         );

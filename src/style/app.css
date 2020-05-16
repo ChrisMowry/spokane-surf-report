@@ -1,10 +1,12 @@
 .content {
+  position: absolute;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   width: 70vw;
   margin: 0 auto;
-  padding-top: 2rem;
-  align-self: center; }
+  top: 2rem;
+  align-items: center; }
 
 /*# sourceMappingURL=app.css.map */

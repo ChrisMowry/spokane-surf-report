@@ -1,11 +1,14 @@
 @import 'theme';
 
 .content{
+    position: absolute;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
     width: 70vw;
     margin: 0 auto;
-    padding-top: $head-height;
-    align-self: center;
+    top: $head-height;
+    //padding-top: $head-height;
+    align-items: center;
 }
