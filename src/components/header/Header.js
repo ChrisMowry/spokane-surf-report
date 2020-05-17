@@ -1,3 +1,15 @@
+/*
+    File: Header.js
+    Author: Chris Mowry
+    Date: 05/16/2020
+    Email: cmowry84@gmail.com
+    Description:
+
+        This component is intended to be the header bar at the top of the
+        web application. It also serves as the control for toggling the map
+        view visibility.
+*/
+
 import React, { Component } from 'react';
 import '../../style/header.css'
 

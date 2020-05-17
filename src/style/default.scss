@@ -5,11 +5,28 @@ html,body{
     font-size: $font-size;
     margin: 0;
     padding: 0;
-}
 
-.root{
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+
+    #root{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+
+        .container{
+            min-height: 100vh;
+            //height: 100%;
+            width: 100%;
+            min-width: 100vw;
+            min-width: -webkit-fill-available;
+            position: relative;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;   
+        }
+
+    }
 }

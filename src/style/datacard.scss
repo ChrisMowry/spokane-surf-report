@@ -1,0 +1,101 @@
+@import 'theme';
+@import 'quicksand-font';
+
+.data-card-deck{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-height: calc(100vh - 2rem);
+    width: 100%;
+    background-color: $fifth-color;
+
+    ul{
+        margin: 1rem;
+        padding: 0;
+    }
+
+    .data-card{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        margin: 0.5rem 10vw 0.5rem 10vw;
+        padding: 0.2rem;
+        border-radius: 0.2rem;
+        font-family: Quicksand;
+        width: $content-width - 10;
+        list-style: none;
+        background-color: $third-color;
+
+        .detail-button{display: none;}
+
+        .detail-button + .detail-button-view{
+            position: relative;
+
+            .data-card-display{
+                position: relative;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                justify-items: center;
+
+                h2{ 
+                    margin: 0;
+                    padding: 0;
+                    line-height: $head-height;
+                    font-size: 1rem;
+                }
+
+                .spot-values{
+                    right: 0;
+                    position: absolute;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    height: $head-height;
+                    text-align: center;
+                    
+                    h3, h4{
+                        margin: 0;
+                        padding: 0;
+                        vertical-align: middle;
+                        line-height: $head-height / 2;
+                    }
+
+                    h3{ font-size: 0.7rem; }
+    
+                    h4{
+                        font-weight: 300;
+                        font-size: 0.5rem;
+                    }
+                }
+
+                img{
+                    height: $head-height;
+                    width: $head-height;
+                    padding-right: 0.5rem;
+                }
+            }
+
+            .data-card-detail{
+                //position: absolute;
+                display: block;
+                height: 0;
+                overflow: hidden;
+                transition: all 0.5s;
+            }
+        }
+
+        // makes spot details visible
+        .detail-button:checked + .detail-button-view{
+            .data-card-detail{
+                height: 30vh;
+            }
+        }
+    }
+}
