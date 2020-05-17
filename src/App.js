@@ -1,3 +1,15 @@
+/*
+    File: App.js
+    Author: Chris Mowry
+    Date: 05/16/2020
+    Email: cmowry84@gmail.com
+    Description:
+
+        This component utilizes all of the high level components to allow the user
+        to interact with the web application. It also makes the inital data request 
+        from the server-side data source.
+*/
+
 import React, { Component } from 'react';
 import Header from './components/header/Header';
 import MapContainer from './components/map/MapContainer';
@@ -28,11 +40,11 @@ class App extends Component {
 
         this.setState({
             surfSpots: [
-                {id: 1},
-                {id: 2},
-                {id: 3},
-                {id: 4},
-                {id: 5}
+                {id: 1, surfable: true},
+                {id: 2, surfable: true},
+                {id: 3, surfable: false},
+                {id: 4, surfable: false},
+                {id: 5, surfable: false}
             ]
         })
     }

@@ -1,5 +1,6 @@
 @import 'theme';
-@import 'lobster';
+@import 'lobster-font';
+@import 'quicksand-font';
 
 header {
     height: $head-height;
@@ -50,9 +51,9 @@ header {
         h2{
             display: inline-block;
             color: $third-color;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Quicksand;
             font-size: 0.6rem;
-            font-weight: 100;
+            font-weight: 500;
             margin: 0.2rem;
         }
 

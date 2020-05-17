@@ -1,3 +1,14 @@
+/*
+    File: DataCardDeck.js
+    Author: Chris Mowry
+    Date: 05/16/2020
+    Email: cmowry84@gmail.com
+    Description:
+
+        This component holds the collection of data cards.
+*/
+
+
 import React, { Component } from 'react';
 import DataCard from './DataCard';
 import '../../style/datacard.css'
@@ -13,7 +24,7 @@ import '../../style/datacard.css'
             <div className='data-card-deck'>
                 <ul>
                     {this.props.spots.map(
-                        (spot) => <li><DataCard key={spot.id} surfSpot={spot}/></li>
+                        (spot) => <DataCard key={spot.id} spot={spot}/>
                     )}
                 </ul>
             </div>

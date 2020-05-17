@@ -6,9 +6,8 @@
     display: -ms-flexbox;
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    width: $content-width;
     margin: 0 auto;
     top: $head-height;
-    //padding-top: $head-height;
     align-items: center;
 }
