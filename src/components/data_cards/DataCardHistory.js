@@ -21,7 +21,7 @@ import '../../style/datacard.css'
     render() {
         return (
             <div className='data-card-history'>
-                
+                this is the history!
             </div>
         );
     }
