@@ -30,8 +30,8 @@ import '../../style/datacard.css'
                  type="checkbox"
                  />
                 <label htmlFor={'detail-button-' + this.props.spot.id} className='detail-button-view'>
-                    <DataCardDisplay spot={this.props.spot}/>
-                    <DataCardDetail />
+                    <DataCardDisplay spot={this.props.spot} />
+                    <DataCardDetail spot={this.props.spot} />
                 </label>
             </li>
         );

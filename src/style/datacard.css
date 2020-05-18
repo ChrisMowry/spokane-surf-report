@@ -83,11 +83,49 @@
           width: 2rem;
           padding-right: 0.5rem; }
       .data-card-deck .data-card .detail-button + .detail-button-view .data-card-detail {
-        display: block;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
         height: 0;
         overflow: hidden;
         transition: all 0.5s; }
+        .data-card-deck .data-card .detail-button + .detail-button-view .data-card-detail .detail-header {
+          position: relative;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          width: 100%;
+          border-bottom: solid 1px #000;
+          height: 1.35rem;
+          padding-top: 0.5rem; }
+          .data-card-deck .data-card .detail-button + .detail-button-view .data-card-detail .detail-header h4 {
+            position: absolute;
+            font-weight: 300;
+            font-size: 0.5rem;
+            line-height: 1rem;
+            padding-left: 5px;
+            left: 0;
+            bottom: 0;
+            margin: 0; }
+          .data-card-deck .data-card .detail-button + .detail-button-view .data-card-detail .detail-header .tab-bar {
+            position: absolute;
+            right: 0;
+            padding-right: 1rem; }
+            .data-card-deck .data-card .detail-button + .detail-button-view .data-card-detail .detail-header .tab-bar .tab-button {
+              display: inline-block;
+              background: none;
+              background-color: none;
+              border: none;
+              outline: none;
+              font-family: Quicksand;
+              font-weight: 500;
+              font-size: 0.6rem;
+              height: 1rem;
+              margin: 0; }
+            .data-card-deck .data-card .detail-button + .detail-button-view .data-card-detail .detail-header .tab-bar .active {
+              border-bottom: solid 4px #000; }
     .data-card-deck .data-card .detail-button:checked + .detail-button-view .data-card-detail {
-      height: 30vh; }
+      height: 40vh; }
 
 /*# sourceMappingURL=datacard.css.map */

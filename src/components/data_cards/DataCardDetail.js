@@ -10,18 +10,53 @@
 */
 
 import React, { Component } from 'react';
+import DataCardDesc from './DataCardDesc';
+import DataCardHistory from './DataCardHistory';
 import '../../style/datacard.css'
 
  class DataCardDetail extends Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            activeTab:'describe'
+        }
+
+        this.handleHeaderButtonClick = this.handleHeaderButtonClick.bind(this);
+    }
+
+    handleHeaderButtonClick(button){
+        this.setState({ activeTab : button });
+        this.forceUpdate();
+        console.log(this.state.activeTab);
     }
 
     render() {
+        let optLow = this.props.spot.optimumFlowLow_i !== undefined ? this.props.spot.optimumFlowLow_i : 0;
+        let optHigh = this.props.spot.optimumFlowHigh_i !== undefined ? this.props.spot.optimumFlowHigh_i : 0;
+        let optUnit = this.props.spot.units !== undefined ? this.props.spot.units : 'unk';
         return (
             <div className='data-card-detail'>
-                this is some details and shit!
+                <div className='detail-header'>
+                    <h4>{'optimum range: ' + optLow + ' - ' + optHigh + ' ' + optUnit}</h4>
+                    <div className='tab-bar'>
+                        <button 
+                            className={this.state.activeTab === 'describe' ? 'tab-button active': 'tab-button'}
+                            onClick={()=>this.handleHeaderButtonClick('describe')} >
+                            Description
+                        </button>
+                        <button 
+                            className={this.state.activeTab === 'history' ? 'tab-button active': 'tab-button'}
+                            onClick={()=>this.handleHeaderButtonClick('history')} >
+                            History
+                        </button>
+                    </div>
+                </div>
+                {
+                    this.state.activeTab === 'describe' 
+                    ? <DataCardDesc />
+                    : <DataCardHistory />
+                }
             </div>
         );
     }
