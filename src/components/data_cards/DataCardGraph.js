@@ -10,16 +10,16 @@
 */
 
 import React, { Component } from 'react';
-import '../../style/datacard.css'
+import '../../style/datacard.scss'
 
 import GraphPlaceholder from '../../imgs/graph-placeholder.svg'
 import NotGraphPlaceholder from '../../imgs/graph-placeholder-not-in.svg'
 
  class DataCardGraph extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render() {
         return (

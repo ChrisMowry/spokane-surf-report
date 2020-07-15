@@ -14,7 +14,8 @@ import React, { Component } from 'react';
 import Header from './components/header/Header';
 import MapContainer from './components/map/MapContainer';
 import DataCardDeck from './components/data_cards/DataCardDeck';
-import './style/app.css';
+import {properties} from './resource/Config';
+import './style/app.scss';
 
 
 class App extends Component {
@@ -30,22 +31,21 @@ class App extends Component {
         this.toggleMapVisibility = this.toggleMapVisibility.bind(this);
     }
 
-    toggleMapVisibility(self){
+    toggleMapVisibility(){
         this.setState({mapVisible: !this.state.mapVisible})
     }
 
     componentDidMount(){
-        // make api fetch here.
-        console.log('hello world!');
-
-        this.setState({
-            surfSpots: [
-                {id: 1, surfable: true},
-                {id: 2, surfable: true},
-                {id: 3, surfable: false},
-                {id: 4, surfable: false},
-                {id: 5, surfable: false}
-            ]
+        //this.setState({ surfSpots : spots })
+        // fetches surf spots from url
+        fetch(properties.overview_url, {
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+             }})
+        .then((response) => response.json())
+        .then((spots) => {
+            this.setState({ surfSpots : spots })
         })
     }
 

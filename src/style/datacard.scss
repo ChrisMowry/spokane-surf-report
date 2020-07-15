@@ -1,6 +1,10 @@
 @import 'theme';
 @import 'quicksand-font';
 
+
+$detail-header-height: 1.35rem;
+
+
 .data-card-deck{
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -46,7 +50,7 @@
                     margin: 0;
                     padding: 0;
                     line-height: $head-height;
-                    font-size: 1rem;
+                    font-size: 0.75rem;
                 }
 
                 .spot-values{
@@ -90,21 +94,22 @@
                 height: 0;
                 overflow: hidden;
                 transition: all 0.5s;
+                position: relative;
 
                 .detail-header{
-                    position: relative;
+                    position: absolute;
                     display: -webkit-flex;
                     display: -ms-flexbox;
                     display: flex;
                     width: 100%;
                     border-bottom: solid 1px #000;
-                    height: 1.35rem;
-                    padding-top: 0.5rem;
+                    height: $detail-header-height;
 
                     h4{
                         position: absolute;
                         font-weight: 300;
                         font-size: 0.5rem;
+                        height: 1rem;
                         line-height: 1rem;
                         padding-left: 5px;
                         left: 0;
@@ -112,7 +117,8 @@
                         margin: 0;
                     }
                     .tab-bar{
-                        //display: block;
+                        //display: block;\
+                        height: 1rem;
                         position: absolute;
                         right: 0;
                         padding-right: 1rem;
@@ -133,6 +139,12 @@
                             border-bottom: solid 4px #000;
                         }
                     }
+                }
+
+                .detail-content{
+                    position: absolute;
+                    padding: 0.5rem;
+                    top: $detail-header-height
                 }
             }
         }

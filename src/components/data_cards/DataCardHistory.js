@@ -10,18 +10,41 @@
 */
 
 import React, { Component } from 'react';
-import '../../style/datacard.css'
+import '../../style/datacard.scss'
 
  class DataCardHistory extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render() {
+
+        let date = new Date();
+        date.setMonth(1)
         return (
             <div className='data-card-history'>
-                this is the history!
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>J</th>
+                        <th>F</th>
+                        <th>M</th>
+                        <th>A</th>
+                        <th>M</th>
+                        <th>J</th>
+                        <th>J</th>
+                        <th>A</th>
+                        <th>S</th>
+                        <th>O</th>
+                        <th>N</th>
+                        <th>D</th>
+                    </tr>
+                    {
+                        //self.props.history.foreach()
+
+                    }
+                </table>
             </div>
         );
     }

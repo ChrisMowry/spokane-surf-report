@@ -12,7 +12,7 @@
 import React, { Component } from 'react';
 import DataCardDesc from './DataCardDesc';
 import DataCardHistory from './DataCardHistory';
-import '../../style/datacard.css'
+import '../../style/datacard.scss'
 
  class DataCardDetail extends Component {
 
@@ -21,20 +21,18 @@ import '../../style/datacard.css'
         this.state={
             activeTab:'describe'
         }
-
         this.handleHeaderButtonClick = this.handleHeaderButtonClick.bind(this);
     }
 
     handleHeaderButtonClick(button){
         this.setState({ activeTab : button });
         this.forceUpdate();
-        console.log(this.state.activeTab);
     }
 
     render() {
         let optLow = this.props.spot.optimumFlowLow_i !== undefined ? this.props.spot.optimumFlowLow_i : 0;
         let optHigh = this.props.spot.optimumFlowHigh_i !== undefined ? this.props.spot.optimumFlowHigh_i : 0;
-        let optUnit = this.props.spot.units !== undefined ? this.props.spot.units : 'unk';
+        let optUnit = this.props.unit !== undefined ? this.props.unit : 'unk';
         return (
             <div className='data-card-detail'>
                 <div className='detail-header'>
@@ -52,11 +50,13 @@ import '../../style/datacard.css'
                         </button>
                     </div>
                 </div>
-                {
-                    this.state.activeTab === 'describe' 
-                    ? <DataCardDesc />
-                    : <DataCardHistory />
-                }
+                <div className='detail-content'>
+                    {
+                        this.state.activeTab === 'describe' 
+                        ? <DataCardDesc />
+                        : <DataCardHistory />
+                    }
+                </div>
             </div>
         );
     }

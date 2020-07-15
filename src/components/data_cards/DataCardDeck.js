@@ -11,20 +11,20 @@
 
 import React, { Component } from 'react';
 import DataCard from './DataCard';
-import '../../style/datacard.css'
+import '../../style/datacard.scss'
 
  class DataCardDeck extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render() {
         return (
             <div className='data-card-deck'>
                 <ul>
                     {this.props.spots.map(
-                        (spot) => <DataCard key={spot.id} spot={spot}/>
+                        (spot) => <DataCard key={spot.spot_id} spot={spot}/>
                     )}
                 </ul>
             </div>
