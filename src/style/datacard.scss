@@ -19,6 +19,10 @@ $detail-header-height: 1.35rem;
     ul{
         margin: 1rem;
         padding: 0;
+
+        @media screen and (max-width: $media-break1) {
+            margin: 0;
+        }
     }
 
     .data-card{
@@ -33,6 +37,11 @@ $detail-header-height: 1.35rem;
         width: $content-width - 10;
         list-style: none;
         background-color: $third-color;
+
+        @media screen and (max-width: $media-break1) {
+            margin: 0.5rem 2px 0.5rem 2px;
+            width: 90vw;
+        }
 
         .detail-button{display: none;}
 
@@ -51,6 +60,10 @@ $detail-header-height: 1.35rem;
                     padding: 0;
                     line-height: $head-height;
                     font-size: 0.75rem;
+
+                    @media screen and (max-width: $media-break2) {
+                        font-size: 0.6rem;
+                    }
                 }
 
                 .spot-values{
@@ -71,11 +84,22 @@ $detail-header-height: 1.35rem;
                         line-height: $head-height / 2;
                     }
 
-                    h3{ font-size: 0.7rem; }
+                    h3{ 
+                        font-size: 0.7rem; 
+
+                        @media screen and (max-width: $media-break2) {
+                            font-size: 0.5rem;
+                        }
+                    
+                    }
     
                     h4{
                         font-weight: 300;
                         font-size: 0.5rem;
+
+                        @media screen and (max-width: $media-break2) {
+                            font-size: 0.3rem;
+                        }
                     }
                 }
 
@@ -115,13 +139,17 @@ $detail-header-height: 1.35rem;
                         left: 0;
                         bottom: 0;
                         margin: 0;
+
+                        @media screen and (max-width: $media-break2) {
+                            font-size: 0.3rem;
+                        }   
                     }
+
                     .tab-bar{
-                        //display: block;\
                         height: 1rem;
                         position: absolute;
                         right: 0;
-                        padding-right: 1rem;
+                        padding-right: 0.5rem;
 
                         .tab-button{
                             display: inline-block;
@@ -134,7 +162,16 @@ $detail-header-height: 1.35rem;
                             font-size: 0.6rem;
                             height: 1rem;
                             margin: 0;
+
+                            @media screen and (max-width: $media-break2) {
+                                font-size: 0.4rem;
+                            }                            
                         } 
+
+                        @media screen and (max-width: $media-break2) {
+                            padding-right: 0.1rem;
+                        } 
+
                         .active{
                             border-bottom: solid 4px #000;
                         }
@@ -146,6 +183,10 @@ $detail-header-height: 1.35rem;
                     padding: 0.5rem;
                     top: $detail-header-height
                 }
+            }
+
+            @media screen and (max-width: $media-break1) {
+                width: 100%;
             }
         }
 

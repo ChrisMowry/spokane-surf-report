@@ -28,7 +28,7 @@ import '../../style/datacard.scss'
 
     async onChangeExpand(event){
         if(event.target.checked){
-            fetch(properties.detail_url, {
+            fetch(process.env.PUBLIC_URL + properties.detail_url, {
                 headers : { 
                   'Content-Type': 'application/json',
                   'Accept': 'application/json'

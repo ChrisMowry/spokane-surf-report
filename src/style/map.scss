@@ -3,6 +3,7 @@
 
 .map-container{
     position: relative;
+    min-height: 300px;
     height: 50vh;
     width: 70vw;
     display: -webkit-flex;
@@ -21,10 +22,16 @@
         right: 0;
         background-color: #B2B2B2B2;
     }
+
+    @media screen and (max-width: $media-break1) {
+        height: 60vh;
+        width: 100vw;  
+    }
 }
 
 
 .hidden{
     height: 0; 
+    min-height: 0;
     visibility: hidden;
 }

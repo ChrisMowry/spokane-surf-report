@@ -36,9 +36,8 @@ class App extends Component {
     }
 
     componentDidMount(){
-        //this.setState({ surfSpots : spots })
         // fetches surf spots from url
-        fetch(properties.overview_url, {
+        fetch(process.env.PUBLIC_URL + properties.overview_url, {
             headers : { 
               'Content-Type': 'application/json',
               'Accept': 'application/json'

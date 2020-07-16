@@ -14,9 +14,8 @@ html,body{
 
         .container{
             min-height: 100vh;
-            //height: 100%;
             width: 100%;
-            min-width: 100vw;
+            min-width: 350px;
             min-width: -webkit-fill-available;
             position: relative;
             display: -webkit-flex;
@@ -24,7 +23,7 @@ html,body{
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 auto;   
+            margin: 0 auto; 
         }
     }
 }
