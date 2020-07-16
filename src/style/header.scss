@@ -4,6 +4,7 @@
 
 header {
     height: $head-height;
+    min-width: 350px;
     width: 100%;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -23,6 +24,10 @@ header {
         color: $third-color;
         font-weight: 100;
         font-size: 1rem;
+
+        @media screen and (max-width: $media-break1) {
+            font-size: 0.7rem;
+        }
     }
 
     img{
@@ -55,6 +60,10 @@ header {
             font-size: 0.6rem;
             font-weight: 500;
             margin: 0.2rem;
+
+            @media screen and (max-width: $media-break1) {
+                font-size: 0.5rem;
+            }
         }
 
         svg{
@@ -64,7 +73,15 @@ header {
             padding: 0.2rem;
             transform: rotate(180deg);
             transition: all 0.5s;
+
+            @media screen and (max-width: $media-break1) {
+                height: 0.3rem;
+                width: 0.3rem;
+                padding: 0.2rem;
+            }
         }
+
+
     }
 
     // updates map button apearance on click

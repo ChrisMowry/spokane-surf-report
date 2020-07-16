@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-import '../../style/map.css'
+import '../../style/map.scss'
 import ThumbsUp from '../../imgs/thumbs-up.svg'
 import ThumbsDown from '../../imgs/thumbs-down.svg'
 
@@ -9,19 +9,71 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
     constructor(props) {
         super(props);
 
-        this.defaultCenter = {lat: 47.7061299, lng: -117.1419032};
+        let pixelWidth = 0
 
         this.state = {
-            center: this.defaultCenter,
-            zoom: 11
+            center: this.getCenter(this.props.spots),
+            zoom: this.getZoom(this.props.spots, pixelWidth),
         }
-
-        this.positions = [{id:1, lat:47.704182, lng:-116.9874425, status: ThumbsDown},
-             {id:2, lat:47.6859465, lng:-117.0445785, status: ThumbsUp},
-             {id:3, lat:47.673752, lng:-117.1821145, status: ThumbsDown},]
 
         this.handleMarkerClick = this.handleMarkerClick.bind(this);
         this.handleMapMouseOut = this.handleMapMouseOut.bind(this);
+
+        this.containerRef = React.createRef()
+    }
+
+    getStatus(spot){
+        if( spot.currentValue <= spot.max && spot.currentValue >= spot.min){
+            return ThumbsUp
+        }
+        else{
+            return ThumbsDown
+        }
+    }
+
+    getCenter(spots){
+        console.log(spots);
+        if (spots.length > 0){
+            let lat = 0;
+            let lng = 0;
+            spots.forEach((spot) =>
+                {
+                    lat += spot.location.lat;
+                    lng += spot.location.lon;
+                }
+            )
+            
+            lat = lat / spots.length
+            lng = lng / spots.length
+
+            return { lat: lat, lng: lng - 0.06 }
+        }
+        else{
+            return { lat: 47.7061299, lng: -117.1419032 }
+        }
+    }
+
+    getZoom(spots, pixelWidth){
+        let zoom = 11;
+        if(pixelWidth > 0){
+            // default google value
+            let GLOBE_WIDTH = 256;
+
+            // calculates min and max longitute
+            let minLng = Math.min(...spots.map((spot) => spot.location.lon));
+            let maxLng = Math.max(...spots.map((spot) => spot.location.lon));
+
+            // gets the angle
+            let angle = maxLng - minLng;
+            if( angle < 0 ){
+                angle += 360;
+            }
+
+            // calculates zoom level
+            zoom = Math.floor(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
+        }
+
+        return zoom;
     }
 
     handleMarkerClick(position){
@@ -42,24 +94,30 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
         }
     }
 
+    componentDidMount(){
+        let pixelWidth = parseInt(this.containerRef.current.offsetWidth);
+        this.setState({zoom: this.getZoom(this.props.spots, pixelWidth)});
+    }
+
     render() {
         return (
-            <div className={ this.props.mapVisible ? 'map-container' : 'map-container hidden' }>
+            <div className={ this.props.mapVisible ? 'map-container' : 'map-container hidden' } 
+                ref={this.containerRef}>
                 <Map
                     className='map'
                     google={this.props.google}
                     zoom={this.state.zoom}
-                    initialCenter={{ lat: 47.7061299, lng: -117.1419032 }}
+                    initialCenter={{lat: this.state.center.lat, lng: this.state.center.lng}}
                     center={{lat: this.state.center.lat, lng: this.state.center.lng}}
-                    onMouseout={this.handleMapMouseOut}>                   
+                    onMouseout={this.handleMapMouseOut}>            
                     {
-                        this.positions.map(
-                            position => (
+                        this.props.spots.map(
+                            spot => (
                                 <Marker 
-                                    key={position.id}
-                                    position={{lat: position.lat, lng: position.lng}}
-                                    icon={position.status}
-                                    onClick={()=>this.handleMarkerClick(position)}
+                                    key={spot.spot_id}
+                                    position={{lat: spot.location.lat, lng: spot.location.lon}}
+                                    icon={this.getStatus(spot)}
+                                    onClick={()=>this.handleMarkerClick(spot)}
                                  />
                             )
                         )

@@ -10,13 +10,13 @@
 */
 
 import React, { Component } from 'react';
-import '../../style/datacard.css'
+import '../../style/datacard.scss'
 
  class DataCardDetail extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render() {
         return (

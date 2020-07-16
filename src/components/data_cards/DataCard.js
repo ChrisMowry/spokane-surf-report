@@ -13,25 +13,48 @@
 import React, { Component } from 'react';
 import DataCardDisplay from './DataCardDisplay';
 import DataCardDetail from './DataCardDetail';
-
-import '../../style/datacard.css'
+import {properties} from '../../resource/Config';
+import '../../style/datacard.scss'
 
  class DataCard extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            details:{}
+        }
+        this.onChangeExpand = this.onChangeExpand.bind(this);
+    }
+
+    async onChangeExpand(event){
+        if(event.target.checked){
+            fetch(process.env.PUBLIC_URL + properties.detail_url, {
+                headers : { 
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                 }})
+            .then((response) => response.json())
+            .then((spots) => {
+                console.log(spots.find(spot => spot.spot_id === this.props.spot.spot_id));
+                this.setState({
+                    details : spots.find(spot => spot.spot_id === this.props.spot.spot_id)
+                })
+            })
+        }
     }
 
     render() {
         return (
             <li className='data-card'>
-                <input id={'detail-button-' + this.props.spot.id}
+                <input id={'detail-button-' + this.props.spot.spot_id}
                  className='detail-button'
                  type="checkbox"
+                 onChange={this.onChangeExpand}
+                 defaultChecked={false}
                  />
-                <label htmlFor={'detail-button-' + this.props.spot.id} className='detail-button-view'>
+                <label htmlFor={'detail-button-' + this.props.spot.spot_id} className='detail-button-view'>
                     <DataCardDisplay spot={this.props.spot} />
-                    <DataCardDetail spot={this.props.spot} />
+                    <DataCardDetail spot={this.state.details} unit={this.props.spot.unit}/>
                 </label>
             </li>
         );
