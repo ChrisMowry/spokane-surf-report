@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
-<BrowserRouter basename={`${process.env.PUBLIC_URL}/`}>
+<BrowserRouter basename={process.env.PUBLIC_URL}>
     <Route exact path = "/" component = {App}/>
     <Route exact path = "/spots" component = {App}/>
     <Route exact path = "/spots/:spot" component = {App}/>
