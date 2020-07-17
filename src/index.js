@@ -7,13 +7,12 @@ import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
-<BrowserRouter>
+<BrowserRouter basename={process.env.PUBLIC_URL}>
     <Route exact path = "/" component = {App}/>
-    <Route exact path = "/spokane-surf-report" component = {App}/>
-    <Route exact path = "/spokane-surf-report/spots" component = {App}/>
-    <Route exact path = "/spokane-surf-report/spots/:spot" component = {App}/>
-    <Route exact path = "/spokane-surf-report/gages/" component = {App}/>
-    <Route exact path = "/spokane-surf-report/gages/:gage" component = {App}/>
+    <Route exact path = "/spots" component = {App}/>
+    <Route exact path = "/spots/:spot" component = {App}/>
+    <Route exact path = "/gages/" component = {App}/>
+    <Route exact path = "/gages/:gage" component = {App}/>
 </BrowserRouter>
 ,document.getElementById('root'));
 
