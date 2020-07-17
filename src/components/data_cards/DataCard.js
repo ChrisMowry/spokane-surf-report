@@ -23,24 +23,33 @@ import '../../style/datacard.scss'
         this.state = {
             details:{}
         }
+
         this.onChangeExpand = this.onChangeExpand.bind(this);
+    }
+
+    fetchData(){
+        fetch(process.env.PUBLIC_URL + properties.detail_url, {
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+             }})
+        .then((response) => response.json())
+        .then((spots) => {
+            console.log(spots.find(spot => spot.spot_id === this.props.spot.spot_id));
+            this.setState({
+                details : spots.find(spot => spot.spot_id === this.props.spot.spot_id)
+            })
+        })
     }
 
     async onChangeExpand(event){
         if(event.target.checked){
-            fetch(process.env.PUBLIC_URL + properties.detail_url, {
-                headers : { 
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json'
-                 }})
-            .then((response) => response.json())
-            .then((spots) => {
-                console.log(spots.find(spot => spot.spot_id === this.props.spot.spot_id));
-                this.setState({
-                    details : spots.find(spot => spot.spot_id === this.props.spot.spot_id)
-                })
-            })
+            this.fetchData();
         }
+    }
+
+    componentDidMount(){
+        this.fetchData();
     }
 
     render() {
@@ -50,7 +59,7 @@ import '../../style/datacard.scss'
                  className='detail-button'
                  type="checkbox"
                  onChange={this.onChangeExpand}
-                 defaultChecked={false}
+                 defaultChecked={this.props.expanded}
                  />
                 <label htmlFor={'detail-button-' + this.props.spot.spot_id} className='detail-button-view'>
                     <DataCardDisplay spot={this.props.spot} />
