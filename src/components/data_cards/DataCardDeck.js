@@ -24,7 +24,7 @@ import '../../style/datacard.scss'
             <div className='data-card-deck'>
                 <ul>
                     {this.props.spots.map(
-                        (spot) => <DataCard key={spot.spot_id} spot={spot}/>
+                        (spot) => <DataCard key={spot.spot_id} spot={spot} expanded={this.props.expanded}/>
                     )}
                 </ul>
             </div>

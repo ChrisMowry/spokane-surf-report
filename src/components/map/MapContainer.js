@@ -32,21 +32,21 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
     }
 
     getCenter(spots){
-        console.log(spots);
-        if (spots.length > 0){
-            let lat = 0;
-            let lng = 0;
-            spots.forEach((spot) =>
-                {
-                    lat += spot.location.lat;
-                    lng += spot.location.lon;
-                }
-            )
-            
-            lat = lat / spots.length
-            lng = lng / spots.length
 
-            return { lat: lat, lng: lng - 0.06 }
+        if (spots.length === 1){
+            return { lat: spots[0].location.lat, lng: spots[0].location.lon }
+        }
+        else if (spots.length > 1){
+            // calculates min and max longitute
+            let minLat = Math.min(...spots.map((spot) => spot.location.lat));
+            let maxLat = Math.max(...spots.map((spot) => spot.location.lat));
+            let minLng = Math.min(...spots.map((spot) => spot.location.lon));
+            let maxLng = Math.max(...spots.map((spot) => spot.location.lon));
+
+            let lat = (minLat + maxLat) / 2.0;
+            let lng = (minLng + maxLng) / 2.0;;
+
+            return { lat: lat, lng: lng}
         }
         else{
             return { lat: 47.7061299, lng: -117.1419032 }
@@ -71,6 +71,16 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
 
             // calculates zoom level
             zoom = Math.floor(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
+
+            if (zoom === Infinity){
+                zoom = 15;
+            }
+
+            if (zoom > 15) {
+                zoom = 15
+            }
+
+            console.log(zoom);
         }
 
         return zoom;

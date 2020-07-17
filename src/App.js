@@ -25,17 +25,24 @@ class App extends Component {
 
         this.state = {
             surfSpots: [],
-            mapVisible: false
+            mapVisible: false,
+            expandedCards: false
         }
 
         this.toggleMapVisibility = this.toggleMapVisibility.bind(this);
+        this.toggleCardExpand = this.toggleCardExpand.bind(this);
     }
 
     toggleMapVisibility(){
         this.setState({mapVisible: !this.state.mapVisible})
     }
 
+    toggleCardExpand(){
+        this.setState({expandedCards: !this.state.expandedCards})
+    }
+
     componentDidMount(){
+        
         // fetches surf spots from url
         fetch(process.env.PUBLIC_URL + properties.overview_url, {
             headers : { 
@@ -44,6 +51,26 @@ class App extends Component {
              }})
         .then((response) => response.json())
         .then((spots) => {
+
+            let spotName = this.props.match.params.spot;
+            let gageNumber = parseInt(this.props.match.params.gage);
+
+            // filters for url paramater for spot
+            if (spotName){
+                spots = spots.filter((spot) => spot.name.toLowerCase() === spotName.toLowerCase());
+                this.setState({ mapVisible: true, expandedCards: true })
+            }
+
+            // filters for path parameter for gage number
+            if (gageNumber){
+                spots = spots.filter((spot) => spot.site === gageNumber );
+
+                // if there is only 1 record, expand the map and the card
+                if (spots.length === 1){
+                    this.setState({ mapVisible: true, expandedCards: true })
+                }
+            }
+
             this.setState({ surfSpots : spots })
         })
     }
@@ -54,7 +81,7 @@ class App extends Component {
                 <Header mapVisible={this.state.mapVisible} toggleMapVisibility={this.toggleMapVisibility}/>
                 <div className='content'>
                     <MapContainer spots={ this.state.surfSpots } mapVisible={ this.state.mapVisible } />
-                    <DataCardDeck spots={ this.state.surfSpots }/>
+                    <DataCardDeck spots={ this.state.surfSpots } expanded={this.state.expandedCards}/>
                 </div>
             </div>
         );
