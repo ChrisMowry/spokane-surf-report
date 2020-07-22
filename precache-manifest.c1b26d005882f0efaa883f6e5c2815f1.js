@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4d5785b8e4002445b6a379e60c0a5321",
+    "revision": "b6f3ee45861ea401565f77419e6bf9a9",
     "url": "/spokane-surf-report/index.html"
   },
   {
-    "revision": "0eadac59399601806670",
+    "revision": "70f46bd10e4a85db98c3",
     "url": "/spokane-surf-report/static/css/main.38cbc7fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spokane-surf-report/static/js/2.1800ec7c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0eadac59399601806670",
-    "url": "/spokane-surf-report/static/js/main.5d03414e.chunk.js"
+    "revision": "70f46bd10e4a85db98c3",
+    "url": "/spokane-surf-report/static/js/main.75c2a002.chunk.js"
   },
   {
     "revision": "3329e4f277050983abe2",
