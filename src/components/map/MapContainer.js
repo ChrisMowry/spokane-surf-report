@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 import '../../style/map.scss'
 import ThumbsUp from '../../imgs/thumbs-up.svg'
 import ThumbsDown from '../../imgs/thumbs-down.svg'
@@ -14,11 +14,11 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
         this.state = {
             center: this.getCenter(this.props.spots),
             zoom: this.getZoom(this.props.spots, pixelWidth),
+            showingInfoWindow: false,  //Hides or the shows the infoWindow
+            activeMarker: {},          //Shows the active marker upon click
+            selectedSpot: {}          //Shows the infoWindow to the selected place upon a marker
         }
-
-        this.handleMarkerClick = this.handleMarkerClick.bind(this);
-        this.handleMapMouseOut = this.handleMapMouseOut.bind(this);
-
+        
         this.containerRef = React.createRef()
     }
 
@@ -79,30 +79,29 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
             if (zoom > 15) {
                 zoom = 15
             }
-
-            console.log(zoom);
         }
 
         return zoom;
     }
 
-    handleMarkerClick(position){
-        // if the user clicks on a spot, the map centers on that spot and zooms in.
+    handleMarkerClick = (props, marker) =>
         this.setState({
-            center:{lat: position.lat, lng: position.lng},
-            zoom: 16
-        });
-    }
+            selectedSpot: props,
+            activeMarker: marker,
+            showingInfoWindow: true,
+            center: {lat: props.position.lat, lng: props.position.lng}
+        },() => {
 
-    handleMapMouseOut(event){
-        // if the mouse moves off the window, the map returns back to center
-        if(this.state.zoom === 16){
-            this.setState({
-                center: this.defaultCenter,
-                zoom: 11
-            });
-        }
-    }
+        });
+
+
+    onInfoWindowClose = () =>
+        this.setState({
+          activeMarker: null,
+          selectedSpot: null,
+          showingInfoWindow: false
+        });
+
 
     componentDidMount(){
         let pixelWidth = parseInt(this.containerRef.current.offsetWidth);
@@ -125,12 +124,33 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
                             spot => (
                                 <Marker 
                                     key={spot.spot_id}
+                                    name={spot.name}
+                                    id={spot.spot_id}
+                                    value={spot.currentValue}
+                                    unit={spot.unit}
                                     position={{lat: spot.location.lat, lng: spot.location.lon}}
                                     icon={this.getStatus(spot)}
-                                    onClick={()=>this.handleMarkerClick(spot)}
-                                 />
+                                    onClick={this.handleMarkerClick} />
                             )
                         )
+                    }
+                    {
+                        this.props.spots.map(
+                            spot => (
+                                <InfoWindow 
+                                    key={spot.spot_id} 
+                                    marker={this.state.activeMarker}
+                                    visible={this.state.showingInfoWindow}
+                                    onClose={this.onInfoWindowClose} >
+                                    <div className='info-window'> 
+                                        {
+                                            `${this.state.selectedSpot.name} : ` +
+                                            `${this.state.selectedSpot.value} ` +
+                                            `${this.state.selectedSpot.unit}`
+                                        }
+                                    </div>
+                                </InfoWindow>
+                            ))
                     }
                 </Map>
             </div>
