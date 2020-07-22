@@ -98,7 +98,6 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
     onInfoWindowClose = () =>
         this.setState({
           activeMarker: null,
-          selectedSpot: null,
           showingInfoWindow: false
         });
 
