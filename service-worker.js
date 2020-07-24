@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/spokane-surf-report/precache-manifest.c1b26d005882f0efaa883f6e5c2815f1.js"
+  "/spokane-surf-report/precache-manifest.7c1eaad47c4886f0297372a5b98102c6.js"
 );
 
 self.addEventListener('message', (event) => {
