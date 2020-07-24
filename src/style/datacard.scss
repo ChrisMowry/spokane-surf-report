@@ -118,7 +118,7 @@ $detail-header-height: 1.35rem;
                     align-content: center;
                     justify-items: center;
 
-                    svg{
+                    svg, img{
                             display: flex;
                             position: absolute;
                             height: $head-height;
@@ -128,7 +128,7 @@ $detail-header-height: 1.35rem;
                             .area{
                                 fill: rgba(255,255,255,0.2)
                             }
-                        } 
+                        }
                 }
 
                 .spot-optimum{
@@ -214,8 +214,44 @@ $detail-header-height: 1.35rem;
 
                 .detail-content{
                     position: absolute;
-                    padding: 0.5rem;
-                    top: $detail-header-height
+                    padding: 0.5px;
+                    top: $detail-header-height;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+
+                    align-content: center;
+                    justify-items: center;  
+                    
+                    width: 100%;
+
+                    .data-card-history{
+
+                        display: -webkit-flex;
+                        display: -ms-flexbox;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center; 
+
+                        width: 100%;
+
+                        table{
+                            display: block;
+                            font-size: 0.25rem;
+
+                            th{
+                                vertical-align: bottom;
+                                div{
+                                    writing-mode: vertical-rl;
+                                    transform: rotate(180deg);
+                                }
+                            }
+
+                            
+
+                        }
+                        
+                    }
                 }
             }
 
@@ -228,6 +264,7 @@ $detail-header-height: 1.35rem;
         .detail-button:checked + .detail-button-view{
             .data-card-detail{
                 height: 40vh;
+                overflow: auto;
             }
         }
     }

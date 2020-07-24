@@ -13,9 +13,6 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import '../../style/datacard.scss'
 
-import GraphPlaceholder from '../../imgs/graph-placeholder.svg'
-import NotGraphPlaceholder from '../../imgs/graph-placeholder-not-in.svg'
-
  class DataCardGraph extends Component {
 
     // constructor(props) {
@@ -112,10 +109,19 @@ import NotGraphPlaceholder from '../../imgs/graph-placeholder-not-in.svg'
     }
 
     render() {
+
+        let length = this.props.spot.values.length;
+        let values = this.props.spot.values;
+
         return (
+
             <div id={`card-display-graph-${this.props.spot.spot_id}`} 
                 className={`card-display-graph ${this.getSpotStatus()}`}>
-
+                {
+                    length === 0 ||  values === undefined
+                    ? <img src={require("../../imgs/no-data.svg")} alt="No Data Icon" />
+                    : ""
+                }
             </div>
             
             );
