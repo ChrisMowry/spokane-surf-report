@@ -110,25 +110,21 @@ import '../../style/datacard.scss'
 
     render() {
 
-        let length = this.props.spot.values.length;
-        let values = this.props.spot.values;
+        // let length = this.props.spot.values.length;
+        // let values = this.props.spot.values;
 
         return (
 
             <div id={`card-display-graph-${this.props.spot.spot_id}`} 
                 className={`card-display-graph ${this.getSpotStatus()}`}>
                 {
-                    length === 0 ||  values === undefined
-                    ? <img src={require("../../imgs/no-data.svg")} alt="No Data Icon" />
-                    : ""
+                    // length === 0 ||  values === undefined
+                    // ? <img src={require("../../imgs/no-data.svg")} alt="No Data Icon" />
+                    // : ""
                 }
             </div>
             
             );
-
-        // return (
-        //     <img src={this.props.surfable ? GraphPlaceholder : NotGraphPlaceholder} alt='flow graph' />
-        // );
     }
  }
 
