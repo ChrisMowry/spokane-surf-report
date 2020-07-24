@@ -25,12 +25,16 @@ class App extends Component {
 
         this.state = {
             surfSpots: [],
+            filteredSpots: [],
             mapVisible: false,
-            expandedCards: false
+            expandedCards: false,
+            filtered: false
         }
 
         this.toggleMapVisibility = this.toggleMapVisibility.bind(this);
         this.toggleCardExpand = this.toggleCardExpand.bind(this);
+        this.filterSpots = this.filterSpots.bind(this);
+        this.unfilterSpots = this.unfilterSpots.bind(this);
     }
 
     toggleMapVisibility(){
@@ -41,14 +45,28 @@ class App extends Component {
         this.setState({expandedCards: !this.state.expandedCards})
     }
 
-    componentDidMount(){
-        
-        // fetches surf spots from url
-        fetch(process.env.PUBLIC_URL + properties.overview_url, {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }})
+    filterSpots(spot_id){
+        this.setState({ 
+            filtered : true, // sets the filtered spots true
+            filteredSpots : this.state.surfSpots.filter((spot) => spot.spot_id === spot_id)
+        }); 
+    }
+
+    unfilterSpots(){
+        this.setState({ 
+            filtered : false // sets the filtered spots false
+        }); 
+
+        this.getSurfSpots(); // gets all of the spots
+    }
+
+    getSurfSpots(){
+       // fetches surf spots from url
+       fetch(process.env.PUBLIC_URL + properties.overview_url, {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }})
         .then((response) => response.json())
         .then((spots) => {
 
@@ -58,7 +76,7 @@ class App extends Component {
             // filters for url paramater for spot
             if (spotName){
                 spots = spots.filter((spot) => spot.name.toLowerCase() === spotName.toLowerCase());
-                this.setState({ mapVisible: true, expandedCards: true })
+                this.setState({ mapVisible : true, expandedCards : true });
             }
 
             // filters for path parameter for gage number
@@ -67,12 +85,19 @@ class App extends Component {
 
                 // if there is only 1 record, expand the map and the card
                 if (spots.length === 1){
-                    this.setState({ mapVisible: true, expandedCards: true })
+                    this.setState({ mapVisible: true, expandedCards : true  })
                 }
             }
 
-            this.setState({ surfSpots : spots })
+            this.setState({ 
+                surfSpots : spots,
+                filteredSpots : spots
+            })
         })
+    }
+
+    componentDidMount(){
+        this.getSurfSpots();
     }
 
     render() {
@@ -80,8 +105,11 @@ class App extends Component {
             <div className='container'>
                 <Header mapVisible={this.state.mapVisible} toggleMapVisibility={this.toggleMapVisibility}/>
                 <div className='content'>
-                    <MapContainer spots={ this.state.surfSpots } mapVisible={ this.state.mapVisible } />
-                    <DataCardDeck spots={ this.state.surfSpots } expanded={this.state.expandedCards}/>
+                    <MapContainer spots={ this.state.surfSpots } 
+                                  mapVisible={ this.state.mapVisible }
+                                  filterSpots={this.filterSpots} 
+                                  unfilterSpots={this.unfilterSpots} />
+                    <DataCardDeck spots={ this.state.filteredSpots } expanded={this.state.expandedCards}/>
                 </div>
             </div>
         );

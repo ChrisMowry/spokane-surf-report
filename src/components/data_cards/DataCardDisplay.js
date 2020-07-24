@@ -28,7 +28,7 @@ import '../../style/datacard.scss'
 
         return (
             <div className='data-card-display'>
-                <DataCardGraph surfable={this.props.spot.surfable}/>
+                <DataCardGraph spot={this.props.spot}/>
                 <h2>{this.props.spot.name}</h2>
                 <div className='spot-values'>
                     <h3>{ currentFlow +' '+ units }</h3>

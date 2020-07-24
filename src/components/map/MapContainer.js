@@ -3,6 +3,7 @@ import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 import '../../style/map.scss'
 import ThumbsUp from '../../imgs/thumbs-up.svg'
 import ThumbsDown from '../../imgs/thumbs-down.svg'
+import OkHand from '../../imgs/ok-hand.svg'
 
  class MapContainer extends Component {
 
@@ -12,8 +13,8 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
         let pixelWidth = 0
 
         this.state = {
-            center: this.getCenter(this.props.spots),
-            zoom: this.getZoom(this.props.spots, pixelWidth),
+            center: this.getCenter(this.props.spots), // centers the map
+            zoom: this.getZoom(this.props.spots, pixelWidth), // calculates zoom level
             showingInfoWindow: false,  //Hides or the shows the infoWindow
             activeMarker: {},          //Shows the active marker upon click
             selectedSpot: {}          //Shows the infoWindow to the selected place upon a marker
@@ -23,11 +24,15 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
     }
 
     getStatus(spot){
-        if( spot.currentValue <= spot.max && spot.currentValue >= spot.min){
-            return ThumbsUp
+        if( spot.currentValue <= spot.max && spot.currentValue >= spot.min ){
+            if ( spot.currentValue <= spot.optimumFlowHigh_i && spot.currentValue >= spot.optimumFlowLow_i ){
+                return OkHand;
+            } else {
+                return ThumbsUp;
+            }
         }
         else{
-            return ThumbsDown
+            return ThumbsDown;
         }
     }
 
@@ -84,22 +89,21 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
         return zoom;
     }
 
-    handleMarkerClick = (props, marker) =>
+    handleMarkerClick = (props, marker) => {
+        this.props.filterSpots(props.id);
         this.setState({
-            selectedSpot: props,
-            activeMarker: marker,
-            showingInfoWindow: true,
-            center: {lat: props.position.lat, lng: props.position.lng}
-        },() => {
-
+            selectedSpot : props,
+            activeMarker : marker,
+            showingInfoWindow : true,
+            center: {lat : props.position.lat, lng : props.position.lng}
         });
-
+    }
 
     onInfoWindowClose = () =>
         this.setState({
           activeMarker: null,
           showingInfoWindow: false
-        });
+        },() => { this.props.unfilterSpots() });
 
 
     componentDidMount(){
@@ -160,7 +164,7 @@ import ThumbsDown from '../../imgs/thumbs-down.svg'
 export default GoogleApiWrapper((props) => ({
     apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     language: props.language
-}))(MapContainer);
+}))( MapContainer );
     
   
 
