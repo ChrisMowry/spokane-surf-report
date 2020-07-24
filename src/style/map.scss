@@ -21,6 +21,10 @@
         left: 0;
         right: 0;
         background-color: #B2B2B2B2;
+
+        .info-window{
+            padding: 5px;
+        }
     }
 
     @media screen and (max-width: $media-break1) {

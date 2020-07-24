@@ -21,7 +21,7 @@ import '../../style/datacard.scss'
     constructor(props) {
         super(props);
         this.state = {
-            details:{}
+            details : {}
         }
 
         this.onChangeExpand = this.onChangeExpand.bind(this);
@@ -35,7 +35,6 @@ import '../../style/datacard.scss'
              }})
         .then((response) => response.json())
         .then((spots) => {
-            console.log(spots.find(spot => spot.spot_id === this.props.spot.spot_id));
             this.setState({
                 details : spots.find(spot => spot.spot_id === this.props.spot.spot_id)
             })
@@ -59,19 +58,18 @@ import '../../style/datacard.scss'
                  className='detail-button'
                  type="checkbox"
                  onChange={this.onChangeExpand}
-                 defaultChecked={this.props.expanded}
-                 />
-                <label htmlFor={'detail-button-' + this.props.spot.spot_id} className='detail-button-view'>
-                    <DataCardDisplay spot={this.props.spot} />
-                    <DataCardDetail spot={this.state.details} unit={this.props.spot.unit}/>
-                </label>
+                 defaultChecked={ this.props.expanded } />
+                    <label htmlFor={'detail-button-' + this.props.spot.spot_id} className='detail-button-view'>
+                        <DataCardDisplay spot={this.props.spot} />
+                        <DataCardDetail spot={this.state.details} unit={this.props.spot.unit}/>
+                    </label>
             </li>
         );
     }
  }
 
  DataCard.defaultProps = {
-    spot:{id:0}
+    spot:{ spot_id : 0 }
  }
 
 export default DataCard;
