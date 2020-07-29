@@ -103,10 +103,12 @@
                 overflow: hidden;
                 text-align: center;
                 vertical-align: middle;
-                background-color: rgba($color: $fifth-color, $alpha: 0.6);
+                background-color: $fifth-color;
             }
 
-            thead th:first-child{ z-index: 3; }
+            thead th:first-child{ 
+                z-index: 3; 
+            }
 
             th:first-child {
                 position: -webkit-sticky;
@@ -118,11 +120,11 @@
         }
 
         table.history-chart tr:hover td{
-            background-color: rgba($color: $fifth-color, $alpha: 0.5);
+            background-color: $fifth-color;//rgba($color: $fifth-color, $alpha: 1.5);
         }
         
         table.history-chart tbody tr:hover th{
-            background-color: rgba($color: $fifth-color, $alpha: 0.5);
+            background-color: $fifth-color; //rgba($color: $fifth-color, $alpha: 0.5);
         }
     }
 }
