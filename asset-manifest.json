@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/spokane-surf-report/static/css/main.f0f24eaa.chunk.css",
-    "main.js": "/spokane-surf-report/static/js/main.8e06c131.chunk.js",
-    "main.js.map": "/spokane-surf-report/static/js/main.8e06c131.chunk.js.map",
+    "main.css": "/spokane-surf-report/static/css/main.79ab2860.chunk.css",
+    "main.js": "/spokane-surf-report/static/js/main.0c1ba877.chunk.js",
+    "main.js.map": "/spokane-surf-report/static/js/main.0c1ba877.chunk.js.map",
     "runtime-main.js": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js",
     "runtime-main.js.map": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js.map",
     "static/js/2.407dc9a4.chunk.js": "/spokane-surf-report/static/js/2.407dc9a4.chunk.js",
     "static/js/2.407dc9a4.chunk.js.map": "/spokane-surf-report/static/js/2.407dc9a4.chunk.js.map",
     "index.html": "/spokane-surf-report/index.html",
-    "precache-manifest.400ac18a7394e955ab548fbdc6f9c1b1.js": "/spokane-surf-report/precache-manifest.400ac18a7394e955ab548fbdc6f9c1b1.js",
+    "precache-manifest.2e8ec671090b176dbd0a20a8bcbdc72f.js": "/spokane-surf-report/precache-manifest.2e8ec671090b176dbd0a20a8bcbdc72f.js",
     "service-worker.js": "/spokane-surf-report/service-worker.js",
-    "static/css/main.f0f24eaa.chunk.css.map": "/spokane-surf-report/static/css/main.f0f24eaa.chunk.css.map",
+    "static/css/main.79ab2860.chunk.css.map": "/spokane-surf-report/static/css/main.79ab2860.chunk.css.map",
     "static/js/2.407dc9a4.chunk.js.LICENSE.txt": "/spokane-surf-report/static/js/2.407dc9a4.chunk.js.LICENSE.txt",
     "static/media/header.scss": "/spokane-surf-report/static/media/Lobster-Regular.9406d0ab.ttf",
     "static/media/datacard-detail.scss": "/spokane-surf-report/static/media/Quicksand-SemiBold.0ced4a3b.ttf",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.3bcce5b7.js",
     "static/js/2.407dc9a4.chunk.js",
-    "static/css/main.f0f24eaa.chunk.css",
-    "static/js/main.8e06c131.chunk.js"
+    "static/css/main.79ab2860.chunk.css",
+    "static/js/main.0c1ba877.chunk.js"
   ]
 }
