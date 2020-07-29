@@ -27,37 +27,55 @@ import '../../style/datacard-history.scss'
             "July",
             "August",
             "September",
+            "October",
             "November",
             "December",
         ]
     }
 
+    isToday(month, day){
+
+        let className = "not-today"
+        const today = new Date();
+        const todayMonth = today.getUTCMonth() + 1;
+        const todayDay = today.getUTCDate();
+
+        const monthNumber = this.months.indexOf(month) + 1;
+
+        if(monthNumber === todayMonth && day === todayDay){
+            className = "today"
+        }
+
+        return className;
+    }
+
     getColorValue(month, day){
         const percent = this.getPercent(month, day);
-        switch(percent){
-            case(percent > 0.0 && percent <= 0.10):
-                return "break-point-1";
-            case(percent > 0.10 && percent <= 0.25):
-                return "break-point-2";
-            case(percent > 0.25 && percent <= 0.50):
-                return "break-point-3";
-            case(percent > 0.50 && percent <= 0.75):
-                return "break-point-4";
-            case(percent > 0.75 && percent <= 1.0):
-                return "break-point-5";
-            default:
-                return "";
+
+        let breakpointClass = "";
+
+        if (percent > 0.0 && percent <= 0.10){
+            breakpointClass = "break-point-1";
+        } else if (percent > 0.10 && percent - 0.25 < 0.001) {
+            breakpointClass = "break-point-2";
+        } else if (percent > 0.25 && percent - 0.5 < 0.001) {
+            breakpointClass = "break-point-3";
+        } else if (percent > 0.50 && percent - 0.75 < 0.001) {
+            breakpointClass = "break-point-4";
+        } else if (percent > 0.75) {
+            breakpointClass = "break-point-5";
         }
+
+        return breakpointClass;
     }
 
     getPercent(month, day){
 
         const monthNumber = this.months.indexOf(month) + 1;
         const { history = [] } = this.props.spot;
+        const object = history.find((record) => record.month === monthNumber && record.day === day, {});
 
-        const object = history.find((record) => record.month === monthNumber && record.day === day );
-        console.log(`object: ${object}`);
-        return object !== undefined ? object.percent : 0;
+        return object === undefined ? 0 : object.percent;
     }
 
     getDays(){
@@ -76,7 +94,7 @@ import '../../style/datacard-history.scss'
         date.setMonth(1)
         return (
             <div className='data-card-history'>
-                <h4>Daily Surfable Probability</h4>
+                <h4>Daily Surf Probability</h4>
                 <table className='legend'>
                     <thead>
                         <tr>
@@ -121,7 +139,7 @@ import '../../style/datacard-history.scss'
                                                 
                                                 this.getDays().map(
                                                     (day) => 
-                                                        <td key={day}>
+                                                        <td key={day} className={this.isToday(month, day)}>
                                                             <div className={`day-${day} ${ this.getColorValue(month, day) }`}> </div>
                                                         </td>
                                                 )
