@@ -10,7 +10,7 @@
 */
 
 import React, { Component } from 'react';
-import '../../style/datacard.scss'
+import '../../style/datacard-history.scss'
 
  class DataCardHistory extends Component {
 
@@ -33,7 +33,31 @@ import '../../style/datacard.scss'
     }
 
     getColorValue(month, day){
-        return "";
+        const percent = this.getPercent(month, day);
+        switch(percent){
+            case(percent > 0.0 && percent <= 0.10):
+                return "break-point-1";
+            case(percent > 0.10 && percent <= 0.25):
+                return "break-point-2";
+            case(percent > 0.25 && percent <= 0.50):
+                return "break-point-3";
+            case(percent > 0.50 && percent <= 0.75):
+                return "break-point-4";
+            case(percent > 0.75 && percent <= 1.0):
+                return "break-point-5";
+            default:
+                return "";
+        }
+    }
+
+    getPercent(month, day){
+
+        const monthNumber = this.months.indexOf(month) + 1;
+        const { history = [] } = this.props.spot;
+
+        const object = history.find((record) => record.month === monthNumber && record.day === day );
+        console.log(`object: ${object}`);
+        return object !== undefined ? object.percent : 0;
     }
 
     getDays(){
@@ -52,32 +76,62 @@ import '../../style/datacard.scss'
         date.setMonth(1)
         return (
             <div className='data-card-history'>
-                <table>
+                <h4>Daily Surfable Probability</h4>
+                <table className='legend'>
                     <thead>
                         <tr>
-                            <th></th>
-                            {
-                                this.months.map(
-                                    (month) => <th><div>{month}</div></th>
-                                )
-                            }
+                            <th>&lt; 10%</th>
+                            <th>10% - 25%</th>
+                            <th>25% - 50%</th>
+                            <th>50% - 75%</th>
+                            <th>75% - 100%</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            this.getDays().map(
-                                (day) => <tr>
-                                            <td>{day}</td>
+                        <tr>
+                            <td><div className='break-point-1'></div></td>
+                            <td><div className='break-point-2'></div></td>
+                            <td><div className='break-point-3'></div></td>
+                            <td><div className='break-point-4'></div></td>
+                            <td><div className='break-point-5'></div></td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <div className='history-chart-container'>
+                    <table className='history-chart'>
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                {
+                                    // maps the days of the month to the header row
+                                    this.getDays().map(
+                                        (day) => <th key={day} className={`day-${day}`}>{ day }</th>
+                                    )
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                // maps the months and day cells
+                                this.months.map(
+                                    (month) => 
+                                        <tr key={month}>
+                                            <th className='label-col'>{ month }</th>
                                             {
-                                                this.months.map(
-                                                    (month) => <th className={this.getColorValue()}><div></div></th>
+                                                
+                                                this.getDays().map(
+                                                    (day) => 
+                                                        <td key={day}>
+                                                            <div className={`day-${day} ${ this.getColorValue(month, day) }`}> </div>
+                                                        </td>
                                                 )
                                             }
-                                        </tr>
-                            )
-                        }
-                    </tbody>
-                </table>
+                                        </tr>     
+                                )
+                            }
+                        </tbody>
+                    </table>   
+                </div>
             </div>
         );
     }

@@ -12,7 +12,7 @@
 import React, { Component } from 'react';
 import DataCardDesc from './DataCardDesc';
 import DataCardHistory from './DataCardHistory';
-import '../../style/datacard.scss'
+import '../../style/datacard-detail.scss'
 
  class DataCardDetail extends Component {
 
@@ -26,7 +26,6 @@ import '../../style/datacard.scss'
 
     handleHeaderButtonClick(button){
         this.setState({ activeTab : button });
-        this.forceUpdate();
     }
 
     render() {
@@ -36,7 +35,7 @@ import '../../style/datacard.scss'
         return (
             <div className='data-card-detail'>
                 <div className='detail-header'>
-                    <h4>{'optimum range: ' + optLow + ' - ' + optHigh + ' ' + optUnit}</h4>
+                    <h4>{`optimum range: ${ optLow } - ${ optHigh } ${optUnit}`}</h4>
                     <div className='tab-bar'>
                         <button 
                             className={this.state.activeTab === 'describe' ? 'tab-button active': 'tab-button'}
@@ -53,8 +52,8 @@ import '../../style/datacard.scss'
                 <div className='detail-content'>
                     {
                         this.state.activeTab === 'describe' 
-                        ? <DataCardDesc />
-                        : <DataCardHistory />
+                        ? <DataCardDesc spot={ this.props.spot } />
+                        : <DataCardHistory spot={ this.props.spot }/>
                     }
                 </div>
             </div>

@@ -10,7 +10,7 @@
 */
 
 import React, { Component } from 'react';
-import '../../style/datacard.scss'
+import '../../style/datacard-desc.scss'
 
  class DataCardDetail extends Component {
 

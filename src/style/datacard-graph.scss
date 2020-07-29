@@ -1,0 +1,37 @@
+@import 'theme';
+@import 'quicksand-font';
+
+.card-display-graph{
+    position: relative;
+    height: $head-height;
+    width: $head-height;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;     
+    align-content: center;
+    justify-items: center;
+
+    svg, img{
+            display: flex;
+            position: absolute;
+            height: $head-height;
+            width: $head-height;
+            padding: 0;
+            margin: 0;
+            .area{
+                fill: rgba(255,255,255,0.2)
+            }
+        }
+}
+
+.spot-optimum{
+    background-color: $second-color;
+}
+
+.spot-in{
+    background-color: $primary-color;
+}
+
+.spot-out{
+    background-color: $fourth-color;
+}
