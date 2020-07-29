@@ -11,6 +11,8 @@
 
 import React, { Component } from 'react';
 import * as d3 from "d3";
+import {getSpotStatus} from '../../resource/Util';
+
 import '../../style/datacard.scss'
 
  class DataCardGraph extends Component {
@@ -19,40 +21,25 @@ import '../../style/datacard.scss'
     //     super(props);
     // }
 
-    getSpotStatus(){
-        let value = this.props.spot.currentValue;
-        let min = this.props.spot.min;
-        let max = this.props.spot.max;
-        let optMin = this.props.spot.optimumFlowLow_i;
-        let optMax = this.props.spot.optimumFlowHigh_i;
-
-        let status = value > min && value < max
-                    ? value > optMin && value < optMax 
-                        ? 'spot-optimum' 
-                        : 'spot-in'
-                    : 'spot-out';
-
-        return status;
-    }
 
     drawLineGraph(values, min, max){
 
         // set up graph size
-        var svgWidth = 400;
-        var svgHeight = 400;
+        const svgWidth = 400;
+        const svgHeight = 400;
 
         // gets the max value in the values object
-        var maxDataValue = Math.max.apply( Math, values.map((record) => parseInt(record.value)));
+        const maxDataValue = Math.max.apply( Math, values.map((record) => parseInt(record.value)));
 
         // Uses max value if larger than surf sport surfable max value
-        var maxChartValue = maxDataValue > max ? maxDataValue : max
+        const maxChartValue = maxDataValue > max ? maxDataValue : max
 
-        var margin = { top: 0, right: 0, bottom: 0, left: 0 }
+        const margin = { top: 0, right: 0, bottom: 0, left: 0 }
             ,width = svgWidth - margin.left - margin.right
             ,height = svgHeight - margin.top - margin.bottom;
 
-
-        var data = values.map((value) => {
+        // normalizes the data for use in the graph
+        const data = values.map((value) => {
             return {
                 value : parseInt(value.value),
                 date : new Date(value.dateTime)
@@ -60,18 +47,18 @@ import '../../style/datacard.scss'
         });
 
         // set the ranges
-        var x = d3.scaleTime()
+        const x = d3.scaleTime()
                 .domain(d3.extent(data, (d) => { return d.date; }))
                 .range([0, width]);
 
-        var y = d3.scaleLinear()
+        const y = d3.scaleLinear()
                 .domain([0, maxChartValue])
                 .range([height, 0]);
 
         // append the svg obgect to the body of the page
         // appends a 'group' element to 'svg'
         // moves the 'group' element to the top left margin
-        var svg = d3.select(`#card-display-graph-${this.props.spot.spot_id}`).append("svg")
+        const svg = d3.select(`#card-display-graph-${this.props.spot.spot_id}`).append("svg")
                     .attr("viewBox", `0 0 400 400`)
                     .append("g")
                     .attr("transform",
@@ -103,24 +90,24 @@ import '../../style/datacard.scss'
     }
 
     componentDidMount() {
-        
         // render the graph
-        this.drawLineGraph(this.props.spot.values, this.props.spot.min, this.props.spot.max);
+        const {values, min, max } = this.props.spot;
+        this.drawLineGraph( values, min, max );
     }
 
     render() {
 
-        // let length = this.props.spot.values.length;
-        // let values = this.props.spot.values;
+        const { values = [] } = this.props.spot;
+        const length = values.length;
 
         return (
 
             <div id={`card-display-graph-${this.props.spot.spot_id}`} 
-                className={`card-display-graph ${this.getSpotStatus()}`}>
+                className={`card-display-graph ${getSpotStatus(this.props.spot)}`}>
                 {
-                    // length === 0 ||  values === undefined
-                    // ? <img src={require("../../imgs/no-data.svg")} alt="No Data Icon" />
-                    // : ""
+                    length === 0 || getSpotStatus(this.props.spot) === 'NoData'
+                    ? <img src={require("../../imgs/icon-no-data.svg")} alt="No Data Icon" />
+                    : ""
                 }
             </div>
             

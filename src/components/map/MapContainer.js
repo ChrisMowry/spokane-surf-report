@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+import { getSpotStatus } from '../../resource/Util';
 import '../../style/map.scss'
-import ThumbsUp from '../../imgs/thumbs-up.svg'
-import ThumbsDown from '../../imgs/thumbs-down.svg'
-import OkHand from '../../imgs/ok-hand.svg'
+import ThumbsUp from '../../imgs/map-icon-thumbs-up.svg'
+import ThumbsDown from '../../imgs/map-icon-thumbs-down.svg'
+import OkHand from '../../imgs/map-icon-ok-hand.svg'
+import NoData from '../../imgs/map-icon-no-data.svg'
 
  class MapContainer extends Component {
 
@@ -23,16 +25,19 @@ import OkHand from '../../imgs/ok-hand.svg'
         this.containerRef = React.createRef()
     }
 
-    getStatus(spot){
-        if( spot.currentValue <= spot.max && spot.currentValue >= spot.min ){
-            if ( spot.currentValue <= spot.optimumFlowHigh_i && spot.currentValue >= spot.optimumFlowLow_i ){
-                return OkHand;
-            } else {
-                return ThumbsUp;
-            }
-        }
-        else{
+    getIcon(spot){
+
+        // determines which map icon to use
+        const status = getSpotStatus(spot);
+
+        if( status === 'spot-optimum' ){
+            return OkHand;
+        } else if ( status === 'spot-in') {
+            return ThumbsUp;
+        } else if ( status === 'spot-out'){
             return ThumbsDown;
+        } else {
+            return NoData;
         }
     }
 
@@ -132,7 +137,7 @@ import OkHand from '../../imgs/ok-hand.svg'
                                     value={spot.currentValue}
                                     unit={spot.unit}
                                     position={{lat: spot.location.lat, lng: spot.location.lon}}
-                                    icon={this.getStatus(spot)}
+                                    icon={this.getIcon(spot)}
                                     onClick={this.handleMarkerClick} />
                             )
                         )

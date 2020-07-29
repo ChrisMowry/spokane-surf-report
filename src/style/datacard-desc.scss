@@ -1,0 +1,11 @@
+@import 'theme';
+@import 'quicksand-font';
+
+.data-card-desc{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+}

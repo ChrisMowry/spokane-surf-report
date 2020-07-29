@@ -1,0 +1,92 @@
+@import 'theme';
+@import 'quicksand-font';
+
+
+
+.data-card-detail{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+    position: relative;
+
+    .detail-header{
+        position: absolute;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        border-bottom: solid 1px #000;
+        height: $detail-header-height;
+
+        h4{
+            position: absolute;
+            font-weight: 300;
+            font-size: 0.5rem;
+            height: 1rem;
+            line-height: 1rem;
+            padding-left: 5px;
+            left: 0;
+            bottom: 0;
+            margin: 0;
+
+            @media screen and (max-width: $media-break2) {
+                font-size: 0.35rem;
+            }   
+        }
+
+        .tab-bar{
+            display: block;
+            height: 1rem;
+            position: absolute;
+            right: 0;
+            padding-right: 0.5rem;
+
+            .tab-button{
+                display: inline-block;
+                background: none;
+                background-color: none;
+                border: none;
+                outline: none;
+                font-family: Quicksand;
+                font-weight: 500;
+                font-size: 0.6rem;
+                height: 1rem;
+                margin: 0;
+
+                @media screen and (max-width: $media-break2) {
+                    font-size: 0.5rem;
+                }                            
+            } 
+
+            @media screen and (max-width: $media-break2) {
+                padding-right: 0.1rem;
+            } 
+
+            .active{
+                border-bottom: solid 4px #000;
+            }
+        }
+    }
+
+    .detail-content{
+        top: $detail-header-height;
+        position: absolute;
+        padding-top: 0.5px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        align-content: center;
+        justify-items: center;  
+        height: calc(50vh - 1.35rem);
+        width: 100%;
+        //overflow-y: scroll;
+    }
+}
+
+@media screen and (max-width: $media-break1) {
+    width: 100%;
+}

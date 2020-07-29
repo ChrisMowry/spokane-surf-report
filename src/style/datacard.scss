@@ -2,9 +2,6 @@
 @import 'quicksand-font';
 
 
-$detail-header-height: 1.35rem;
-
-
 .data-card-deck{
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -73,6 +70,24 @@ $detail-header-height: 1.35rem;
                     }
                 }
 
+                .status-icon{
+                    height: $head-height;
+                    width: $head-height / 2;
+                    padding: 0 0.2rem 0 0.2rem;
+
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img{
+                        display: block;
+                        height: $head-height / 2;
+                        width: $head-height / 2;
+                    }
+                }
+
                 .spot-values{
                     right: 0;
                     position: absolute;
@@ -108,163 +123,14 @@ $detail-header-height: 1.35rem;
                         }
                     }
                 }
-                .card-display-graph{
-                    position: relative;
-                    height: $head-height;
-                    width: $head-height;
-                    display: -webkit-flex;
-                    display: -ms-flexbox;
-                    display: flex;     
-                    align-content: center;
-                    justify-items: center;
-
-                    svg, img{
-                            display: flex;
-                            position: absolute;
-                            height: $head-height;
-                            width: $head-height;
-                            padding: 0;
-                            margin: 0;
-                            .area{
-                                fill: rgba(255,255,255,0.2)
-                            }
-                        }
-                }
-
-                .spot-optimum{
-                    background-color: $second-color;
-                }
-
-                .spot-in{
-                    background-color: $primary-color;
-                }
-
-                .spot-out{
-                    background-color: $fourth-color;
-                }
             }
 
-            .data-card-detail{
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                flex-direction: column;
-                height: 0;
-                overflow: hidden;
-                transition: all 0.5s;
-                position: relative;
-
-                .detail-header{
-                    position: absolute;
-                    display: -webkit-flex;
-                    display: -ms-flexbox;
-                    display: flex;
-                    width: 100%;
-                    border-bottom: solid 1px #000;
-                    height: $detail-header-height;
-
-                    h4{
-                        position: absolute;
-                        font-weight: 300;
-                        font-size: 0.5rem;
-                        height: 1rem;
-                        line-height: 1rem;
-                        padding-left: 5px;
-                        left: 0;
-                        bottom: 0;
-                        margin: 0;
-
-                        @media screen and (max-width: $media-break2) {
-                            font-size: 0.35rem;
-                        }   
-                    }
-
-                    .tab-bar{
-                        height: 1rem;
-                        position: absolute;
-                        right: 0;
-                        padding-right: 0.5rem;
-
-                        .tab-button{
-                            display: inline-block;
-                            background: none;
-                            background-color: none;
-                            border: none;
-                            outline: none;
-                            font-family: Quicksand;
-                            font-weight: 500;
-                            font-size: 0.6rem;
-                            height: 1rem;
-                            margin: 0;
-
-                            @media screen and (max-width: $media-break2) {
-                                font-size: 0.5rem;
-                            }                            
-                        } 
-
-                        @media screen and (max-width: $media-break2) {
-                            padding-right: 0.1rem;
-                        } 
-
-                        .active{
-                            border-bottom: solid 4px #000;
-                        }
-                    }
-                }
-
-                .detail-content{
-                    position: absolute;
-                    padding: 0.5px;
-                    top: $detail-header-height;
-                    display: -webkit-flex;
-                    display: -ms-flexbox;
-                    display: flex;
-
-                    align-content: center;
-                    justify-items: center;  
-                    
-                    width: 100%;
-
-                    .data-card-history{
-
-                        display: -webkit-flex;
-                        display: -ms-flexbox;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center; 
-
-                        width: 100%;
-
-                        table{
-                            display: block;
-                            font-size: 0.25rem;
-
-                            th{
-                                vertical-align: bottom;
-                                div{
-                                    writing-mode: vertical-rl;
-                                    transform: rotate(180deg);
-                                }
-                            }
-
-                            
-
-                        }
-                        
-                    }
-                }
-            }
-
-            @media screen and (max-width: $media-break1) {
-                width: 100%;
-            }
         }
 
         // makes spot details visible
         .detail-button:checked + .detail-button-view{
             .data-card-detail{
-                height: 40vh;
-                overflow: auto;
+                height: 50vh;
             }
         }
     }
