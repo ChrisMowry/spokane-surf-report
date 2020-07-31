@@ -12,6 +12,7 @@
 import React, { Component } from 'react';
 import DataCardDesc from './DataCardDesc';
 import DataCardHistory from './DataCardHistory';
+import { formatNumber } from '../../resource/Util';
 import '../../style/datacard-detail.scss'
 
  class DataCardDetail extends Component {
@@ -29,13 +30,12 @@ import '../../style/datacard-detail.scss'
     }
 
     render() {
-        let optLow = this.props.spot.optimumFlowLow_i !== undefined ? this.props.spot.optimumFlowLow_i : 0;
-        let optHigh = this.props.spot.optimumFlowHigh_i !== undefined ? this.props.spot.optimumFlowHigh_i : 0;
-        let optUnit = this.props.unit !== undefined ? this.props.unit : 'unk';
+        const { optimumFlowLow_i:optLow = 0, optimumFlowHigh_i:optHigh = 0 } = this.props.spotDetail;
+        const { unit:optUnit = 'unk' } = this.props.spot;
         return (
             <div className='data-card-detail'>
                 <div className='detail-header'>
-                    <h4>{`optimum range: ${ optLow } - ${ optHigh } ${optUnit}`}</h4>
+                    <h4>{`optimum range: ${ formatNumber(optLow) } - ${ formatNumber(optHigh) } ${optUnit}`}</h4>
                     <div className='tab-bar'>
                         <button 
                             className={this.state.activeTab === 'describe' ? 'tab-button active': 'tab-button'}
@@ -52,8 +52,8 @@ import '../../style/datacard-detail.scss'
                 <div className='detail-content'>
                     {
                         this.state.activeTab === 'describe' 
-                        ? <DataCardDesc spot={ this.props.spot } />
-                        : <DataCardHistory spot={ this.props.spot }/>
+                        ? <DataCardDesc spotDetail={ this.props.spotDetail } spot={ this.props.spot } />
+                        : <DataCardHistory spotDetail={ this.props.spotDetail }/>
                     }
                 </div>
             </div>

@@ -72,7 +72,7 @@ import '../../style/datacard-history.scss'
     getPercent(month, day){
 
         const monthNumber = this.months.indexOf(month) + 1;
-        const { history = [] } = this.props.spot;
+        const { history = [] } = this.props.spotDetail;
         const object = history.find((record) => record.month === monthNumber && record.day === day, {});
 
         return object === undefined ? 0 : object.percent;
