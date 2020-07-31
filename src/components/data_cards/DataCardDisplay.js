@@ -12,7 +12,7 @@
 
 import React, { Component } from 'react';
 // import DataCardGraph from './DataCardGraph';
-import { getSpotStatus } from '../../resource/Util';
+import { getSpotStatus, formatNumber } from '../../resource/Util';
 
 import '../../style/datacard.scss'
 
@@ -52,8 +52,8 @@ import '../../style/datacard.scss'
                 {/* <DataCardGraph spot={this.props.spot}/> */}
                 <h2>{ name }</h2>
                 <div className='spot-values'>
-                    <h3>{ `${currentValue} ${unit}` }</h3>
-                    <h4>{ `range: ${ min } - ${ max } ${ unit }` }</h4>
+                    <h3>{ `${ formatNumber(currentValue) } ${unit}` }</h3>
+                    <h4>{ `range: ${ formatNumber(min) } - ${ formatNumber(max) } ${ unit }` }</h4>
                 </div>
 
             </div>

@@ -2,10 +2,104 @@
 @import 'quicksand-font';
 
 .data-card-desc{
+    width: 100%;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center; 
-    width: 100%;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding-bottom: 1rem;
+
+    h4{
+        line-height: 1rem;
+        font-size: 0.6rem;
+        height: 1rem;
+        margin: 0.2rem;
+        //padding: 0.1rem 0.6rem 0.1rem 0.6rem;
+    }
+
+    p{
+        font-size: 0.6rem;
+        margin: 0 1.2rem 0 1.2rem;
+    }
+
+    ul{
+        margin: auto 0;
+        font-size: 0.6rem;
+        text-align: left;
+        li{
+            width: 50vw;
+
+            a { margin: 0;}
+        }
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: $primary-color;
+        font-size: 0.5rem;
+        font-weight: 300;
+        //margin: auto;
+        position: relative;
+        margin: 0 1.2rem 0 1.2rem;
+    }
+
+    a:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: $primary-color;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+
+    .overview-box{
+        width: 100%;
+        margin: 0.1rem 0 0.1rem 0;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        background-color: $fifth-color;
+        justify-content: space-between;       
+        
+        .gage-box, .diff-box{
+            font-size: 0.5rem;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+
+            .value{ 
+                font-weight: 300;
+                color: $primary-color;
+                margin-left: 0;
+                padding-left: 0; 
+            }
+        }
+    }
+}
+
+.data-card-desc::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+   
+.data-card-desc::-webkit-scrollbar-track {
+    margin-top: 1px;
+    background-color: $fifth-color; 
+    border-radius: 5px;
+}
+   
+.data-card-desc::-webkit-scrollbar-thumb {
+    background-color: $primary-color;
+    border-radius: 5px;
+    background-clip: content-box; 
 }

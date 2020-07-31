@@ -70,13 +70,12 @@
 
     .history-chart-container {
         width: 90%;
-        max-width: 600px;
+        max-width: 603px;
         position: relative;
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
         margin: auto;
-        //overflow: scroll;
         overflow: auto;
 
         .history-chart {
@@ -126,5 +125,20 @@
         table.history-chart tbody tr:hover th{
             background-color: $fifth-color; //rgba($color: $fifth-color, $alpha: 0.5);
         }
+    }
+
+    .history-chart-container::-webkit-scrollbar {
+        height: 0.2rem;
+        width: 0.2rem;
+    }
+       
+    .history-chart-container::-webkit-scrollbar-track {
+        background-color: $fifth-color; 
+    }
+       
+    .history-chart-container::-webkit-scrollbar-thumb {
+        background-color: $primary-color;
+        border-radius: 5px;
+        background-clip: content-box; 
     }
 }

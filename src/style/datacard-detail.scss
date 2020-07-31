@@ -36,6 +36,10 @@
             @media screen and (max-width: $media-break2) {
                 font-size: 0.35rem;
             }   
+
+            @media screen and (max-width: $media-break3) {
+                visibility: hidden;
+            }
         }
 
         .tab-bar{
@@ -67,7 +71,7 @@
             } 
 
             .active{
-                border-bottom: solid 4px #000;
+                border-bottom: solid 4px $primary-color;
             }
         }
     }

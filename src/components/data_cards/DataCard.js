@@ -61,7 +61,7 @@ import '../../style/datacard.scss'
                  defaultChecked={ this.props.expanded } />
                     <label htmlFor={'detail-button-' + this.props.spot.spot_id} className='detail-button-view'>
                         <DataCardDisplay spot={this.props.spot} />
-                        <DataCardDetail spot={this.state.details} unit={this.props.spot.unit}/>
+                        <DataCardDetail spotDetail={this.state.details} spot={this.props.spot}/>
                     </label>
             </li>
         );
