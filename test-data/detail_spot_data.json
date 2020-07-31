@@ -2,9 +2,18 @@
     {
         "spot_id": 1,
         "name":"Corbin",
-        "desc":"description about the feature",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
         "kayakable":true,
         "boardable":true,
 		"optimumFlowLow_i":17500,
@@ -386,7 +395,16 @@
         "name":"Dead Dog",
         "desc":"",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
         "kayakable":true,
         "boardable":false,
 		"optimumFlowLow_i":11000,
@@ -766,9 +784,18 @@
     {
         "spot_id": 3,
         "name":"Duplex",
-        "desc":"",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
         "kayakable":true,
         "boardable":false,
 		"optimumFlowLow_i":6000,
@@ -1148,9 +1175,18 @@
     {
         "spot_id": 4,
         "name":"Flower Power",
-        "desc":"",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
         "kayakable":true,
         "boardable":true,
 		"optimumFlowLow_i":4.4,
@@ -1530,9 +1566,18 @@
     {
         "spot_id": 5,
         "name":"Mini Climax",
-        "desc":"",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
         "kayakable":true,
         "boardable":true,
 		"optimumFlowLow_i":5700,
@@ -1912,9 +1957,18 @@
     {
         "spot_id": 6,
         "name":"Sullivan",
-        "desc":"",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
         "kayakable":true,
         "boardable":false,
 		"optimumFlowLow_i":2600,
@@ -2294,9 +2348,18 @@
     {
         "spot_id": 7,
         "name":"Trailer Park",
-        "desc":"",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+                   {
+                        "label":"Avista",
+                        "url":"https://www.avistautilities.com"
+                   },
+                   {
+                       "label":"Other Site",
+                       "url":"https://www.google.com"
+                   }
+                ],
         "kayakable":true,
         "boardable":true,
 		"optimumFlowLow_i":3500,
@@ -2676,9 +2739,18 @@
     {
         "spot_id": 8,
         "name":"Zoo",
-        "desc":"",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
 		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
-		"links": [{"Avista":"https://www.avista.com"},{"Other Site":"https://www.google.com"}],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
         "kayakable":true,
         "boardable":true,
 		"optimumFlowLow_i":2400,
