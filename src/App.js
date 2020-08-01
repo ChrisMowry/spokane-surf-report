@@ -28,8 +28,11 @@ class App extends Component {
             filteredSpots: [],
             mapVisible: false,
             expandedCards: false,
-            filtered: false
+            filtered: false,
+            isLoaded: false
         }
+
+        this.counter = 0;
 
         this.toggleMapVisibility = this.toggleMapVisibility.bind(this);
         this.toggleCardExpand = this.toggleCardExpand.bind(this);
@@ -61,6 +64,11 @@ class App extends Component {
     }
 
     getSurfSpots(){
+
+        this.counter += 1;
+
+        console.log(this.counter);
+
        // fetches surf spots from url
        fetch(process.env.PUBLIC_URL + properties.overview_url, {
         headers : { 
@@ -97,7 +105,16 @@ class App extends Component {
     }
 
     componentDidMount(){
-        this.getSurfSpots();
+        // refreshes the data every 10 minutes while the app is running
+        if(!this.state.isLoaded){
+            this.getSurfSpots();
+            this.setState({ isLoaded: true });
+        }
+        this.interval = setInterval(() => this.getSurfSpots(), 600000);
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.interval);
     }
 
     render() {

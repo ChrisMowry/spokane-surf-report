@@ -23,6 +23,16 @@
         margin: 0 1.2rem 0 1.2rem;
     }
 
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: $primary-color;
+        font-size: 0.5rem;
+        font-weight: 300;
+        position: relative;
+        margin: 0 1.2rem 0 1.2rem;
+    }
+
     ul{
         margin: auto 0;
         font-size: 0.6rem;
@@ -30,20 +40,14 @@
         li{
             width: 50vw;
 
-            a { margin: 0;}
+            a { 
+                font-size: 0.6rem;
+                margin: 0;
+            }
         }
     }
 
-    a {
-        display: inline-block;
-        text-decoration: none;
-        color: $primary-color;
-        font-size: 0.5rem;
-        font-weight: 300;
-        //margin: auto;
-        position: relative;
-        margin: 0 1.2rem 0 1.2rem;
-    }
+
 
     a:before {
         content: "";

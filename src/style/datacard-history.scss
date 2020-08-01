@@ -20,6 +20,7 @@
 
     .legend{
         width: 95%;
+        max-width: 603px;
         font-size: 0.4rem;
         margin: auto;
         th{
@@ -75,8 +76,11 @@
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
+        flex-grow: 1;
+        align-self: center;
         margin: auto;
         overflow: auto;
+        margin-top: 0.6rem;
 
         .history-chart {
             tr{

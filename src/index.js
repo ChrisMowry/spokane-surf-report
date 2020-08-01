@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 // Change to BrowserRouter for deployment
-<HashRouter basename={process.env.PUBLIC_URL}>
+<HashRouter basename={process.env.PUBLIC_URL+'/'}>
     <Route exact path = "/" component = {App}/>
     <Route exact path = "/spots" component = {App}/>
     <Route exact path = "/spots/:spot" component = {App}/>
