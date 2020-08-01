@@ -32,8 +32,6 @@ class App extends Component {
             isLoaded: false
         }
 
-        this.counter = 0;
-
         this.toggleMapVisibility = this.toggleMapVisibility.bind(this);
         this.toggleCardExpand = this.toggleCardExpand.bind(this);
         this.filterSpots = this.filterSpots.bind(this);
@@ -64,10 +62,6 @@ class App extends Component {
     }
 
     getSurfSpots(){
-
-        this.counter += 1;
-
-        console.log(this.counter);
 
        // fetches surf spots from url
        fetch(process.env.PUBLIC_URL + properties.overview_url, {
