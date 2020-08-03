@@ -15,6 +15,7 @@ import Header from './components/header/Header';
 import MapContainer from './components/map/MapContainer';
 import DataCardDeck from './components/data_cards/DataCardDeck';
 import {properties} from './resource/Config';
+import {compareSpots} from './resource/Util';
 import './style/app.scss';
 
 
@@ -49,7 +50,7 @@ class App extends Component {
     filterSpots(spot_id){
         this.setState({ 
             filtered : true, // sets the filtered spots true
-            filteredSpots : this.state.surfSpots.filter((spot) => spot.spot_id === spot_id)
+            filteredSpots : this.state.surfSpots.filter((spot) => spot.spot_id === spot_id).sort(compareSpots)
         }); 
     }
 
@@ -64,7 +65,7 @@ class App extends Component {
     getSurfSpots(){
 
        // fetches surf spots from url
-       fetch(process.env.PUBLIC_URL + properties.overview_url, {
+       fetch( properties.overview_url, {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -93,7 +94,7 @@ class App extends Component {
 
             this.setState({ 
                 surfSpots : spots,
-                filteredSpots : spots
+                filteredSpots : spots.sort(compareSpots)
             })
         })
     }
