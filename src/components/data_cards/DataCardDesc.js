@@ -17,7 +17,7 @@ import '../../style/datacard-desc.scss'
     constructor(props) {
         super(props);
 
-        this.usgs_site = `https://waterdata.usgs.gov/wa/nwis/uv/?station=${this.props.spot.site}`;
+        this.usgs_site = `https://waterdata.usgs.gov/nwis/uv?${this.props.spot.site}`;
     }
 
     render() {
@@ -41,11 +41,11 @@ import '../../style/datacard-desc.scss'
                     // Gage Site 
                     this.props.spot.siteName !== undefined
                     ? <div>
-                            <h4>Gage Name:</h4>
-                                <a href={ this.usgs_site } target="_blank" rel='noopener noreferrer'>
-                                    { this.props.spot.siteName }
-                                </a>
-                            </div>
+                        <h4>Gage Name:</h4>
+                        <a href={ this.usgs_site } target="_blank" rel='noopener noreferrer'>
+                            { this.props.spot.siteName }
+                        </a>
+                     </div>
                     : ""
                 }
                 {

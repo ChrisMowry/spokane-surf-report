@@ -15,11 +15,20 @@
         font-size: 0.6rem;
         height: 1rem;
         margin: 0.2rem;
-        //padding: 0.1rem 0.6rem 0.1rem 0.6rem;
     }
 
     p{
         font-size: 0.6rem;
+        margin: 0 1.2rem 0 1.2rem;
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: $primary-color;
+        font-size: 0.5rem;
+        font-weight: 300;
+        position: relative;
         margin: 0 1.2rem 0 1.2rem;
     }
 
@@ -30,20 +39,14 @@
         li{
             width: 50vw;
 
-            a { margin: 0;}
+            a { 
+                font-size: 0.6rem;
+                margin: 0;
+            }
         }
     }
 
-    a {
-        display: inline-block;
-        text-decoration: none;
-        color: $primary-color;
-        font-size: 0.5rem;
-        font-weight: 300;
-        //margin: auto;
-        position: relative;
-        margin: 0 1.2rem 0 1.2rem;
-    }
+
 
     a:before {
         content: "";
