@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/spokane-surf-report/static/css/main.46140cd0.chunk.css",
-    "main.js": "/spokane-surf-report/static/js/main.78b121d2.chunk.js",
-    "main.js.map": "/spokane-surf-report/static/js/main.78b121d2.chunk.js.map",
+    "main.css": "/spokane-surf-report/static/css/main.e998c6cf.chunk.css",
+    "main.js": "/spokane-surf-report/static/js/main.9b561085.chunk.js",
+    "main.js.map": "/spokane-surf-report/static/js/main.9b561085.chunk.js.map",
     "runtime-main.js": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js",
     "runtime-main.js.map": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js.map",
     "static/js/2.ea22b336.chunk.js": "/spokane-surf-report/static/js/2.ea22b336.chunk.js",
     "static/js/2.ea22b336.chunk.js.map": "/spokane-surf-report/static/js/2.ea22b336.chunk.js.map",
     "index.html": "/spokane-surf-report/index.html",
-    "precache-manifest.4c44e3f8eeed3ecf38a35481524940fb.js": "/spokane-surf-report/precache-manifest.4c44e3f8eeed3ecf38a35481524940fb.js",
+    "precache-manifest.863bdac482928aede1e71bde22e0b547.js": "/spokane-surf-report/precache-manifest.863bdac482928aede1e71bde22e0b547.js",
     "service-worker.js": "/spokane-surf-report/service-worker.js",
-    "static/css/main.46140cd0.chunk.css.map": "/spokane-surf-report/static/css/main.46140cd0.chunk.css.map",
+    "static/css/main.e998c6cf.chunk.css.map": "/spokane-surf-report/static/css/main.e998c6cf.chunk.css.map",
     "static/js/2.ea22b336.chunk.js.LICENSE.txt": "/spokane-surf-report/static/js/2.ea22b336.chunk.js.LICENSE.txt",
     "static/media/header.scss": "/spokane-surf-report/static/media/Lobster-Regular.9406d0ab.ttf",
     "static/media/datacard-detail.scss": "/spokane-surf-report/static/media/Quicksand-SemiBold.0ced4a3b.ttf",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.3bcce5b7.js",
     "static/js/2.ea22b336.chunk.js",
-    "static/css/main.46140cd0.chunk.css",
-    "static/js/main.78b121d2.chunk.js"
+    "static/css/main.e998c6cf.chunk.css",
+    "static/js/main.9b561085.chunk.js"
   ]
 }
