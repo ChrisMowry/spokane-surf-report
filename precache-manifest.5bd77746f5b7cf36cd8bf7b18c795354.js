@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6f4ca35d927161193888c4464a85a0c0",
+    "revision": "13a51076f2af97022f4904dadaff75bb",
     "url": "/spokane-surf-report/index.html"
   },
   {
-    "revision": "8e104e7dd69641aa0119",
-    "url": "/spokane-surf-report/static/css/main.e998c6cf.chunk.css"
+    "revision": "5733d099227074b883d9",
+    "url": "/spokane-surf-report/static/css/main.f0204cc6.chunk.css"
   },
   {
-    "revision": "3712037939a74be7fedf",
-    "url": "/spokane-surf-report/static/js/2.ea22b336.chunk.js"
+    "revision": "04fe71b1124020341113",
+    "url": "/spokane-surf-report/static/js/2.0f1f59e1.chunk.js"
   },
   {
     "revision": "54fd6816419f7824e2804745930c9117",
-    "url": "/spokane-surf-report/static/js/2.ea22b336.chunk.js.LICENSE.txt"
+    "url": "/spokane-surf-report/static/js/2.0f1f59e1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8e104e7dd69641aa0119",
-    "url": "/spokane-surf-report/static/js/main.9b561085.chunk.js"
+    "revision": "5733d099227074b883d9",
+    "url": "/spokane-surf-report/static/js/main.97a98aee.chunk.js"
   },
   {
     "revision": "3329e4f277050983abe2",

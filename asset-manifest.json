@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/spokane-surf-report/static/css/main.e998c6cf.chunk.css",
-    "main.js": "/spokane-surf-report/static/js/main.9b561085.chunk.js",
-    "main.js.map": "/spokane-surf-report/static/js/main.9b561085.chunk.js.map",
+    "main.css": "/spokane-surf-report/static/css/main.f0204cc6.chunk.css",
+    "main.js": "/spokane-surf-report/static/js/main.97a98aee.chunk.js",
+    "main.js.map": "/spokane-surf-report/static/js/main.97a98aee.chunk.js.map",
     "runtime-main.js": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js",
     "runtime-main.js.map": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js.map",
-    "static/js/2.ea22b336.chunk.js": "/spokane-surf-report/static/js/2.ea22b336.chunk.js",
-    "static/js/2.ea22b336.chunk.js.map": "/spokane-surf-report/static/js/2.ea22b336.chunk.js.map",
+    "static/js/2.0f1f59e1.chunk.js": "/spokane-surf-report/static/js/2.0f1f59e1.chunk.js",
+    "static/js/2.0f1f59e1.chunk.js.map": "/spokane-surf-report/static/js/2.0f1f59e1.chunk.js.map",
     "index.html": "/spokane-surf-report/index.html",
-    "precache-manifest.863bdac482928aede1e71bde22e0b547.js": "/spokane-surf-report/precache-manifest.863bdac482928aede1e71bde22e0b547.js",
+    "precache-manifest.5bd77746f5b7cf36cd8bf7b18c795354.js": "/spokane-surf-report/precache-manifest.5bd77746f5b7cf36cd8bf7b18c795354.js",
     "service-worker.js": "/spokane-surf-report/service-worker.js",
-    "static/css/main.e998c6cf.chunk.css.map": "/spokane-surf-report/static/css/main.e998c6cf.chunk.css.map",
-    "static/js/2.ea22b336.chunk.js.LICENSE.txt": "/spokane-surf-report/static/js/2.ea22b336.chunk.js.LICENSE.txt",
+    "static/css/main.f0204cc6.chunk.css.map": "/spokane-surf-report/static/css/main.f0204cc6.chunk.css.map",
+    "static/js/2.0f1f59e1.chunk.js.LICENSE.txt": "/spokane-surf-report/static/js/2.0f1f59e1.chunk.js.LICENSE.txt",
     "static/media/header.scss": "/spokane-surf-report/static/media/Lobster-Regular.9406d0ab.ttf",
     "static/media/datacard-detail.scss": "/spokane-surf-report/static/media/Quicksand-SemiBold.0ced4a3b.ttf",
     "static/media/icon-ok-hand.svg": "/spokane-surf-report/static/media/icon-ok-hand.cdabfdfd.svg",
@@ -25,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3bcce5b7.js",
-    "static/js/2.ea22b336.chunk.js",
-    "static/css/main.e998c6cf.chunk.css",
-    "static/js/main.9b561085.chunk.js"
+    "static/js/2.0f1f59e1.chunk.js",
+    "static/css/main.f0204cc6.chunk.css",
+    "static/js/main.97a98aee.chunk.js"
   ]
 }
