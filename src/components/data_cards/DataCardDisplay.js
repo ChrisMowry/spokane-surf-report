@@ -22,6 +22,47 @@ import '../../style/datacard.scss'
     //     super(props);
     // }
 
+    getFlowChange(){
+
+        const { values = [], currentValue = 0 , currentValueTime = new Date() } = this.props.spot;
+
+        // converts the current value's time to a date object
+        const readingTime = new Date(currentValueTime);
+
+        if ( values !== undefined && values.length > 0 ){
+
+            // filters the value array to all value object with a timestamp at least 1 hour previous
+            // to the current value timestamp
+            let valueArray = values.filter(
+                (value) => Date.parse(value.dateTime) <= readingTime.setHours(readingTime.getHours() - 1)
+            )
+            
+            // reduces the array to the max timestamp of values 1 hour less than the current value timestamp
+            let hourPreviousValue = valueArray.reduce((prevValue, currentValue) => 
+                ( new Date(prevValue.dateTime) > new Date(currentValue.dateTime)
+                    ? prevValue
+                    : currentValue
+                ), new Date(valueArray[0].dateTime)
+            )
+
+            // returns the difference of the current time and 1 hour previous
+            return (currentValue - hourPreviousValue.value).toFixed(2);
+
+        } else {
+            return 0;
+        }     
+    }
+
+    getFlowChangeClass(){
+        if ( this.getFlowChange() > 0) {
+            return 'flow-positive';
+        } else if ( this.getFlowChange() < 0 ) {
+            return 'flow-negative';
+        } else {
+            return 'flow-flat'
+        }
+    }
+
     getStatusIcon(){
 
         const status = getSpotStatus(this.props.spot);
@@ -42,8 +83,7 @@ import '../../style/datacard.scss'
 
         // destructures the surf spot object
         const {name = 'Unknown', currentValue = 0, min = 0, max = 0, unit = 'unk'} = this.props.spot;
-        
-
+        const flowChange = this.getFlowChange();
         return (
             <div className='data-card-display'>
                 <div className='status-icon'>
@@ -52,7 +92,12 @@ import '../../style/datacard.scss'
                 {/* <DataCardGraph spot={this.props.spot}/> */}
                 <h2>{ name }</h2>
                 <div className='spot-values'>
-                    <h3>{ `${ formatNumber(currentValue) } ${unit}` }</h3>
+                    <div>
+                        <h3>{ `${ formatNumber(currentValue) } ${unit}` }</h3>
+                        <h5 className={ this.getFlowChangeClass() }>
+                            { `${ flowChange > 0 ? "+" : "" }${ formatNumber(flowChange) }` }
+                        </h5>
+                    </div>
                     <h4>{ `range: ${ formatNumber(min) } - ${ formatNumber(max) } ${ unit }` }</h4>
                 </div>
 

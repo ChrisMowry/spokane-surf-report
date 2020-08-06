@@ -22,7 +22,10 @@ import NoData from '../../imgs/map-icon-no-data.svg'
             selectedSpot: {}          //Shows the infoWindow to the selected place upon a marker
         }
         
+        this.googleBaseUrl = 'http://maps.google.com/maps?q=loc:';
+
         this.containerRef = React.createRef()
+
     }
 
     getIcon(spot){
@@ -136,6 +139,8 @@ import NoData from '../../imgs/map-icon-no-data.svg'
                                     id={spot.spot_id}
                                     value={spot.currentValue}
                                     unit={spot.unit}
+                                    parkingLat={spot.accessLoc.lat }
+                                    parkingLng={ spot.accessLoc.lon }
                                     position={{lat: spot.location.lat, lng: spot.location.lon}}
                                     icon={this.getIcon(spot)}
                                     onClick={this.handleMarkerClick} />
@@ -150,13 +155,24 @@ import NoData from '../../imgs/map-icon-no-data.svg'
                                     marker={this.state.activeMarker}
                                     visible={this.state.showingInfoWindow}
                                     onClose={this.onInfoWindowClose} >
-                                    <div className='info-window'> 
-                                        {
-                                            `${this.state.selectedSpot.name} : ` +
-                                            `${this.state.selectedSpot.value} ` +
-                                            `${this.state.selectedSpot.unit}`
-                                        }
+                                    <div className='info-window'
+                                    > 
+                                        <h2>
+                                            {
+                                                `${this.state.selectedSpot.name} : ` +
+                                                `${this.state.selectedSpot.value} ` +
+                                                `${this.state.selectedSpot.unit}`
+                                            }
+                                        </h2>
+                                        <a
+                                            href={ `${this.googleBaseUrl}${this.state.selectedSpot.parkingLat},${this.state.selectedSpot.parkingLng}` } 
+                                            target="_blank" 
+                                            rel='noopener noreferrer'
+                                        >
+                                            Get Directions
+                                        </a>
                                     </div>
+
                                 </InfoWindow>
                             ))
                     }

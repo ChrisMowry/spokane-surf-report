@@ -12,6 +12,7 @@
 
 import React, { Component } from 'react';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import MapContainer from './components/map/MapContainer';
 import DataCardDeck from './components/data_cards/DataCardDeck';
 import {properties} from './resource/Config';
@@ -122,7 +123,9 @@ class App extends Component {
                                   filterSpots={this.filterSpots} 
                                   unfilterSpots={this.unfilterSpots} />
                     <DataCardDeck spots={ this.state.filteredSpots } expanded={this.state.expandedCards}/>
+                    <Footer />
                 </div>
+                
             </div>
         );
     }
