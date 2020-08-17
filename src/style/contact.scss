@@ -1,0 +1,178 @@
+@import 'theme';
+@import 'quicksand-font';
+
+.contact-container{
+    border: 1px solid #000;
+    border-radius: 20px;
+    min-height: 50vh;
+    width: 85%;
+    max-width: 700px;
+    margin: 0.6em auto;
+    padding: 0.5em;
+
+    h2{
+        font-family: Quicksand;
+        color: $primary-color;
+        font-weight: 600;
+        font-size: 0.7em;
+        margin: 0.3em;
+    }
+
+    input, label, textarea{
+        font-family: Quicksand;
+        font-size: 0.65em;
+    }
+
+    .floating-label, .messagebox{
+        position: relative;
+        margin: 0.4em;
+        border-bottom: 1px solid #000;
+        padding: 0.1em;
+
+        input{
+            width: 97%;
+            border: none;
+            outline: 0;
+            margin: 1em 0 0 0;
+            border-radius: 5px;
+            padding: 0.2em;
+        }
+
+        label{
+            width: 100%;
+            left: 0;
+            position: absolute;
+            transform-origin: top left;
+            transform: translate(0, 0.65em) scale(1);
+            transition: all .1s ease-in-out;
+            color: $primary-color;
+            opacity: 0;
+            font-weight: 600;
+        }
+
+        input:not(:placeholder-shown)  + label{
+            opacity: 1;
+            transform: translate(0, 0.4em) scale(0.65);
+        }
+
+        input:valid + label{
+            opacity: 1;
+            transform: translate(0, 0.4em) scale(0.65);
+        }
+    }
+
+    .message-box{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        margin: 0.8em 0.4em;
+
+        textarea{
+            resize: none;
+            border: none;
+            outline: none;
+            margin: 0.5em 0 0 0;
+            padding: 0.5em;
+            background-color: $fifth-color;
+            border-radius: 5px;
+
+        }
+
+        textarea::-webkit-scrollbar {
+            height: 0.2rem;
+            width: 0.2rem;
+        }
+           
+        textarea::-webkit-scrollbar-track {
+            background-color: $fifth-color; 
+        }
+           
+        textarea::-webkit-scrollbar-thumb {
+            background-color: $primary-color;
+            border-radius: 5px;
+            background-clip: content-box; 
+        }
+
+        label{
+            color: $primary-color;
+            font-weight: 600;
+            font-size: 0.45em;
+        }
+    }
+
+    .button-box{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        input, button{
+            height: 2em;
+            border: none;
+            padding: 0.2em;
+            margin: 1em;
+            font-size: 0.65em;
+            font-weight: 600;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all ease-out 0.1s;
+        }
+
+        input{
+            color: #FFF;
+            background-color: $primary-color;
+        }
+
+        input:hover{
+            background-color: rgba($color: $primary-color, $alpha: 0.7);
+        }        
+
+        button{
+            color: $primary-color;
+            background-color: $fifth-color;
+        }
+
+        button:hover{
+            background-color: rgba($color: $fifth-color, $alpha: 0.7);
+        }
+    }
+
+    .contact-form-sent, .contact-form-sent-error{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        font-family: Quicksand;
+        font-weight: 600;
+        font-size: 0.7em;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+
+        h3{
+            margin: 0.5em;
+        }
+    }
+
+    .contact-form-sent{
+        color: $primary-color;
+        button{
+            color: $primary-color;
+        }
+    }
+
+    .contact-form-sent-error{
+        color: $fourth-color;
+        button{
+            color: $fourth-color;
+        }
+    }
+
+    .not-visible{
+        display: none;
+    }
+}

@@ -12,8 +12,11 @@
 
 import React, { Component } from 'react';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import MapContainer from './components/map/MapContainer';
 import DataCardDeck from './components/data_cards/DataCardDeck';
+import Help from './components/help/Help';
+import Contact from './components/contact/Contact';
 import {properties} from './resource/Config';
 import {compareSpots} from './resource/Util';
 import './style/app.scss';
@@ -28,11 +31,17 @@ class App extends Component {
             surfSpots: [],
             filteredSpots: [],
             mapVisible: false,
+            mapButtomVisible: true,
             expandedCards: false,
             filtered: false,
-            isLoaded: false
+            isLoaded: false,
+            helpVisible: false,
+            contactVisible: false
         }
 
+        this.showHelp = this.showHelp.bind(this);
+        this.showContact = this.showContact.bind(this);
+        this.close = this.close.bind(this);
         this.toggleMapVisibility = this.toggleMapVisibility.bind(this);
         this.toggleCardExpand = this.toggleCardExpand.bind(this);
         this.filterSpots = this.filterSpots.bind(this);
@@ -45,6 +54,27 @@ class App extends Component {
 
     toggleCardExpand(){
         this.setState({expandedCards: !this.state.expandedCards})
+    }
+
+    showHelp(){
+        this.setState({
+            helpVisible: true,
+            contactVisible: false
+        })
+    }
+
+    showContact(){
+        this.setState({
+            helpVisible: false,
+            contactVisible: true
+        });
+    }
+
+    close(){
+        this.setState({
+            helpVisible: false,
+            contactVisible: false
+        });
     }
 
     filterSpots(spot_id){
@@ -115,13 +145,28 @@ class App extends Component {
     render() {
         return (
             <div className='container'>
-                <Header mapVisible={this.state.mapVisible} toggleMapVisibility={this.toggleMapVisibility}/>
+                <Header mapVisible={ this.state.mapVisible } 
+                    toggleMapVisibility={ this.toggleMapVisibility }
+                    mapButtomVisible={ this.state.mapButtomVisible }/>
                 <div className='content'>
+                    { 
+                        // shows the help page
+                        this.state.helpVisible 
+                        ? <div className='cover'><Help close={ this.close }/></div>
+                        : ""
+                    }
+                    { 
+                        // shows the contact page
+                        this.state.contactVisible 
+                        ? <div className='cover'><Contact close={ this.close }/></div>
+                        : ""
+                    }                    
                     <MapContainer spots={ this.state.surfSpots } 
                                   mapVisible={ this.state.mapVisible }
                                   filterSpots={this.filterSpots} 
                                   unfilterSpots={this.unfilterSpots} />
                     <DataCardDeck spots={ this.state.filteredSpots } expanded={this.state.expandedCards}/>
+                    <Footer showHelp={ this.showHelp } showContact={ this.showContact } />
                 </div>
             </div>
         );

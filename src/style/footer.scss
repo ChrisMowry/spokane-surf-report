@@ -1,0 +1,63 @@
+@import 'theme';
+
+footer {
+    height: $footer-height;
+    min-width: 350px;
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    color: $third-color;
+    background-color: $primary-color;
+    padding: 0;
+    z-index: 100;
+    font-family: Quicksand;
+
+    .copyright{
+        width: 100%;
+        text-align: center;
+        font-size: 0.4rem;
+    }
+
+    .options-bar{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+
+        .option{
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex-direction: column;           
+            padding: 0 1rem 0 1rem;
+            align-items: center;
+            justify-items: center;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            h2{ 
+                margin: 0;
+                color: $third-color;
+                font-family: Quicksand;
+                font-size: 0.5rem; 
+                font-weight: 300;
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            img{
+                display: block;
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+
+        }
+    }
+    
+}

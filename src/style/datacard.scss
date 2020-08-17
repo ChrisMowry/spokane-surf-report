@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    min-height: calc(100vh - 2rem);
+    min-height: calc(100vh - 2rem - 135px);
     width: 100%;
     background-color: $fifth-color;
 
@@ -97,12 +97,28 @@
                     flex-direction: column;
                     justify-content: center;
                     height: $head-height;
-                    text-align: center;
+                    text-align: right;
+
+                    div{
+                        display: -webkit-flex;
+                        display: -ms-flexbox;
+                        display: flex;
+                        justify-content: center;
+
+                        h5{
+                            font-weight: 300;
+                            font-size: 0.40rem;
+                            padding-left: 10px;
+                        }
+
+                        .flow-flat{ color: $fifth-color; }
+                        .flow-negative{ color: $fourth-color; }
+                        .flow-positive{ color: $primary-color; }
+                    }
                     
-                    h3, h4{
+                    h3, h4, h5{
                         margin: 0;
                         padding: 0;
-                        vertical-align: middle;
                         line-height: $head-height / 2;
                     }
 
