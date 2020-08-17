@@ -4,9 +4,10 @@
 .contact-container{
     border: 1px solid #000;
     border-radius: 20px;
+    min-height: 50vh;
     width: 85%;
     max-width: 700px;
-    margin: 1em auto;
+    margin: 0.6em auto;
     padding: 0.5em;
 
     h2{
@@ -104,14 +105,14 @@
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-
-        //margin: auto;
+        justify-content: center;
+        width: 100%;
 
         input, button{
             height: 2em;
             border: none;
             padding: 0.2em;
-            margin: 0.3em auto;
+            margin: 1em;
             font-size: 0.65em;
             font-weight: 600;
             display: inline-block;
@@ -123,7 +124,6 @@
         input{
             color: #FFF;
             background-color: $primary-color;
-            
         }
 
         input:hover{
@@ -138,7 +138,41 @@
         button:hover{
             background-color: rgba($color: $fifth-color, $alpha: 0.7);
         }
+    }
 
+    .contact-form-sent, .contact-form-sent-error{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        font-family: Quicksand;
+        font-weight: 600;
+        font-size: 0.7em;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
 
+        h3{
+            margin: 0.5em;
+        }
+    }
+
+    .contact-form-sent{
+        color: $primary-color;
+        button{
+            color: $primary-color;
+        }
+    }
+
+    .contact-form-sent-error{
+        color: $fourth-color;
+        button{
+            color: $fourth-color;
+        }
+    }
+
+    .not-visible{
+        display: none;
     }
 }

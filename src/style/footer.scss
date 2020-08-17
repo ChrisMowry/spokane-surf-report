@@ -1,6 +1,7 @@
 @import 'theme';
 
 footer {
+    height: $footer-height;
     min-width: 350px;
     width: 100%;
     display: -webkit-flex;

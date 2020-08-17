@@ -13,7 +13,7 @@ html,body{
         width: 100%;
 
         .container{
-            min-height: 100vh;
+            min-height: calc(100vh - 135px);
             width: 100%;
             min-width: 350px;
             min-width: -webkit-fill-available;

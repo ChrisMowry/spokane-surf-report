@@ -57,44 +57,52 @@ import '../../style/contact.scss'
          });
     }
 
-
     render() {
+
+        const visible = this.state.sentError || this.state.sent
+                        ? 'not-visible'
+                        : ''
+
         return (
             <div className="contact-container">
                 {
                     this.state.sentError 
                     ? <div className='contact-form-sent-error'>
-                        <h3>Error: Your message was not sent. Please try again.</h3>
-                        <button onClick={ this.handleReset }>Try Again</button>
-                        <button onClick={ this.handleClose }>Cancel</button>
+                        <h3>Error: Your message was not sent.</h3>
+                        <div className='button-box'>
+                            <button onClick={ this.handleClose }>Cancel</button>
+                            <button onClick={ this.handleReset }>Try Again</button>
+                        </div>
                       </div>
                     : this.state.sent
                         ? <div className='contact-form-sent'>
-                            <h3>
-                                Thank you for reaching out! We will get back to you as soon as possible.
-                            </h3>
-                            <button onClick={this.handleClose}>Close</button>
+                            <h3>Thank you for reaching out!</h3>
+                            <h3>We will get back to you as soon as possible.</h3>
+                            <div className='button-box'>
+                                <button onClick={this.handleClose}>Close</button>
+                            </div>
                           </div>
-                        : <form className='contact-form' onSubmit={ this.handleSubmit }>
-                            <h2>Contact Us:</h2>
-                            <div className="floating-label">
-                                <input type="text" id="senderName" name="senderName" placeholder="Name" required />
-                                <label htmlFor="senderName">Name</label>
-                            </div>
-                            <div className="floating-label">
-                                <input type="text" id="senderEmail" name="senderEmail" placeholder="Email" required />
-                                <label htmlFor="senderEmail">Email</label>
-                            </div>
-                            <div className="message-box">
-                                <label htmlFor="feedback">Message:</label>
-                                <textarea id="feedback" name="feedback" rows="10" required/>       
-                            </div>
-                            <div className="button-box">
-                                <button onClick={ this.handleClose }>Cancel</button>
-                                <input type="submit" value="Submit"/>
-                            </div>
-                          </form>
+                        :''
                 }
+                <form className={ `contact-form ${visible}` } onSubmit={ this.handleSubmit }>
+                    <h2>Contact Us:</h2>
+                    <div className="floating-label">
+                        <input type="text" id="senderName" name="senderName" placeholder="Name" required />
+                        <label htmlFor="senderName">Name</label>
+                    </div>
+                    <div className="floating-label">
+                        <input type="text" id="senderEmail" name="senderEmail" placeholder="Email" required />
+                        <label htmlFor="senderEmail">Email</label>
+                    </div>
+                    <div className="message-box">
+                        <label htmlFor="feedback">Message:</label>
+                        <textarea id="feedback" name="feedback" rows="10" required/>       
+                    </div>
+                    <div className="button-box">
+                        <button onClick={ this.handleClose }>Cancel</button>
+                        <input type="submit" value="Submit"/>
+                    </div>
+                </form>
             </div>
         );
     }
