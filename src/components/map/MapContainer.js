@@ -130,7 +130,7 @@ import NoData from '../../imgs/map-icon-no-data.svg'
 
     static getDerivedStateFromError(error) {
         // Update state so the next render will show the fallback UI.
-        this.setState({ hasError: true });
+        this.setState({ mapError: true });
       }
 
     render() {
