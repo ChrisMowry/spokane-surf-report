@@ -10,7 +10,11 @@
 */
 
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import emailjs from 'emailjs-com';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
+
 
 import '../../style/contact.scss'
 
@@ -20,7 +24,8 @@ import '../../style/contact.scss'
         super(props);
         this.state = {
             sent: false,
-            sentError: false
+            sentError: false,
+            validEmail: true,
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,18 +37,20 @@ import '../../style/contact.scss'
     handleSubmit(event){
         event.preventDefault();
 
-        // sends email 
-        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICEID,
-                         process.env.REACT_APP_EMAILJS_TEMPLATEID,
-                         event.target,
-                         process.env.REACT_APP_EMAILJS_USERID)
-        .then((result) => {
-            this.setState({ sent: true });
-        }, (error) => {
-            this.setState({ sentError: true });
-        });
-    }
+        if ( this.validate(event.target) ){
 
+            // sends email 
+            emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICEID,
+                             process.env.REACT_APP_EMAILJS_TEMPLATEID,
+                             event.target,
+                             process.env.REACT_APP_EMAILJS_USERID)
+                    .then((result) => {
+                        this.setState({ sent: true });
+                    }, (error) => {
+                        this.setState({ sentError: true });
+                    });
+            }
+    }
 
     handleClose(event){
         this.props.close();
@@ -57,53 +64,80 @@ import '../../style/contact.scss'
          });
     }
 
+    validate(form){
+        let validEmail = this.validateEmail(form.senderEmail.value);
+        return validEmail;
+    }
+
+    validateEmail(email){
+        const emailExpression = /\S+@\S+/;
+        let emailCheck = emailExpression.test(String(email).toLowerCase());
+        this.setState({ validEmail: emailCheck });
+        return emailCheck;
+    }
+
     render() {
 
         const visible = this.state.sentError || this.state.sent
-                        ? 'not-visible'
-                        : ''
+                        ? 'hidden'
+                        : '';
+
+        const emailError = this.state.validEmail ? 'floating-label' : 'floating-label-error';
 
         return (
-            <div className="contact-container">
-                {
-                    this.state.sentError 
-                    ? <div className='contact-form-sent-error'>
-                        <h3>Error: Your message was not sent.</h3>
-                        <div className='button-box'>
-                            <button onClick={ this.handleClose }>Cancel</button>
-                            <button onClick={ this.handleReset }>Try Again</button>
+            <div className='container'>
+                <Header mapVisible={ false} mapButtomVisible={ false }/>
+                <div className='content'>
+                    <div className='contact-content'>
+                        <div className="contact-container">
+                            {
+                                this.state.sentError 
+                                ? <div className='contact-form-sent-error'>
+                                    <h3>Error: Your message was not sent.</h3>
+                                    <div className='button-box'>
+                                        <button onClick={ this.handleClose }>Cancel</button>
+                                        <button onClick={ this.handleReset }>Try Again</button>
+                                    </div>
+                                </div>
+                                : this.state.sent
+                                    ? <div className='contact-form-sent'>
+                                        <h3>Thank you for reaching out!</h3>
+                                        <h3>We will get back to you as soon as possible.</h3>
+                                        <div className='button-box'>
+                                            <button onClick={this.handleClose}>Close</button>
+                                        </div>
+                                    </div>
+                                    :''
+                            }
+                            <form className={ `contact-form ${visible}` } onSubmit={ this.handleSubmit }>
+                                <h2>Contact Us:</h2>
+                                <div className="floating-label">
+                                    <input type="text" id="senderName" name="senderName" placeholder="Name" required />
+                                    <label htmlFor="senderName">Name</label>
+                                </div>
+                                <div className={ emailError } >
+                                    <input type="text" id="senderEmail" name="senderEmail" placeholder="Email" required />
+                                    <label htmlFor="senderEmail">
+                                        {
+                                            this.state.validEmail ? "Email" : "Email - Enter valid email!"
+                                        }
+                                    </label>
+                                </div>
+                                <div className="message-box">
+                                    <label htmlFor="feedback">Message:</label>
+                                    <textarea id="feedback" name="feedback" rows="10" required/>       
+                                </div>
+                                <div className="button-box">
+                                    <Link to='/'>Cancel</Link>
+                                    <input type="submit" value="Submit"/>
+                                </div>
+                            </form>
                         </div>
-                      </div>
-                    : this.state.sent
-                        ? <div className='contact-form-sent'>
-                            <h3>Thank you for reaching out!</h3>
-                            <h3>We will get back to you as soon as possible.</h3>
-                            <div className='button-box'>
-                                <button onClick={this.handleClose}>Close</button>
-                            </div>
-                          </div>
-                        :''
-                }
-                <form className={ `contact-form ${visible}` } onSubmit={ this.handleSubmit }>
-                    <h2>Contact Us:</h2>
-                    <div className="floating-label">
-                        <input type="text" id="senderName" name="senderName" placeholder="Name" required />
-                        <label htmlFor="senderName">Name</label>
                     </div>
-                    <div className="floating-label">
-                        <input type="text" id="senderEmail" name="senderEmail" placeholder="Email" required />
-                        <label htmlFor="senderEmail">Email</label>
-                    </div>
-                    <div className="message-box">
-                        <label htmlFor="feedback">Message:</label>
-                        <textarea id="feedback" name="feedback" rows="10" required/>       
-                    </div>
-                    <div className="button-box">
-                        <button onClick={ this.handleClose }>Cancel</button>
-                        <input type="submit" value="Submit"/>
-                    </div>
-                </form>
+                    <Footer />
+                </div>
             </div>
+
         );
     }
 }

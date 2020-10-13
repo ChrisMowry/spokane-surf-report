@@ -25,6 +25,12 @@ import '../../style/header.scss'
         this.props.toggleMapVisibility();
     }
 
+    getMapVisibleClass(){
+        return this.props.mapButtomVisible
+                ? 'map-button-display'
+                : 'map-button-display hidden'
+    }
+
     render() {
         return (
             <header>
@@ -32,7 +38,7 @@ import '../../style/header.scss'
                 <h1>Spokane Surf Report</h1>
                 <input id="map-button" className="map-button" type="checkbox" 
                 checked={this.props.mapVisible} onClick={this.handleClick} readOnly />
-				<label htmlFor="map-button" className="map-button-display">
+				<label htmlFor="map-button" className={this.getMapVisibleClass()}>
 					<h2>Map</h2>
                     <svg version="1.1" 
                         id="arrow" 

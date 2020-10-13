@@ -10,7 +10,8 @@
 */
 
 import React, { Component } from 'react';
-import '../../style/footer.scss'
+import {Link} from 'react-router-dom';
+import '../../style/footer.scss';
 
  class Footer extends Component {
 
@@ -50,14 +51,14 @@ import '../../style/footer.scss'
                     <p>&copy; 2020 Spokane Surf Report - All rights reserved.</p>
                 </div>
                 <div className="options-bar">
-                    <button className='option' onClick={ this.showHelp }>
+                    <Link className='option' to='/help'>
                         <img src={require("../../imgs/icon-help.svg")} alt='help'/>
                         <h2>Help</h2>
-                    </button>
-                    <button className='option' onClick={ this.showContact }>
+                    </Link>
+                    <Link className='option' to='/contact'>
                         <img src={require("../../imgs/icon-contact.svg")} alt='contact'/>
                         <h2>Contact</h2>
-                    </button>
+                    </Link>
                 </div>
             </footer>
         );

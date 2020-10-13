@@ -13,6 +13,8 @@ footer {
     padding: 0;
     z-index: 100;
     font-family: Quicksand;
+    //position: absolute;
+    bottom:0;
 
     .copyright{
         width: 100%;
@@ -38,6 +40,7 @@ footer {
             background-color: transparent;
             border: none;
             outline: none;
+            text-decoration: none;
             cursor: pointer;
 
             h2{ 
