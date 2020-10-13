@@ -30,7 +30,6 @@ import '../../style/contact.scss'
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleReset = this.handleReset.bind(this);
-        this.handleClose = this.handleClose.bind(this);
     }
 
 
@@ -51,11 +50,6 @@ import '../../style/contact.scss'
                     });
             }
     }
-
-    handleClose(event){
-        this.props.close();
-    }
-
 
     handleReset(event){
         this.setState({ 
@@ -95,7 +89,7 @@ import '../../style/contact.scss'
                                 ? <div className='contact-form-sent-error'>
                                     <h3>Error: Your message was not sent.</h3>
                                     <div className='button-box'>
-                                        <button onClick={ this.handleClose }>Cancel</button>
+                                        <Link to='/'>Cancel</Link>
                                         <button onClick={ this.handleReset }>Try Again</button>
                                     </div>
                                 </div>
@@ -104,7 +98,7 @@ import '../../style/contact.scss'
                                         <h3>Thank you for reaching out!</h3>
                                         <h3>We will get back to you as soon as possible.</h3>
                                         <div className='button-box'>
-                                            <button onClick={this.handleClose}>Close</button>
+                                            <Link to='/'>Close</Link>
                                         </div>
                                     </div>
                                     :''
