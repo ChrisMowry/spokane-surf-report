@@ -6,10 +6,12 @@
     display: -ms-flexbox;
     display: flex;
     flex-direction: column;
-    width: $content-width;
     margin: 0 auto;
     top: $head-height;
     align-items: center;
+    width: 100%;
+    background-color: $fifth-color;
+    min-height: calc(100vh - 2rem);
 
     @media screen and (max-width: $media-break1) {
         width: 100%;  

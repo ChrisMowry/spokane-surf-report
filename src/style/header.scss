@@ -91,4 +91,8 @@ header {
         }
     }
 
+    .map-button + .map-button-display .hidden{
+        visibility: hidden;
+    }
+
 }

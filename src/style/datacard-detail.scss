@@ -92,5 +92,7 @@
 }
 
 @media screen and (max-width: $media-break1) {
-    width: 100%;
+    .data-card-detail{
+        width: 100%;
+    }
 }

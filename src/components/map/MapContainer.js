@@ -19,7 +19,8 @@ import NoData from '../../imgs/map-icon-no-data.svg'
             zoom: this.getZoom(this.props.spots, pixelWidth), // calculates zoom level
             showingInfoWindow: false,  //Hides or the shows the infoWindow
             activeMarker: {},          //Shows the active marker upon click
-            selectedSpot: {}          //Shows the infoWindow to the selected place upon a marker
+            selectedSpot: {},          //Shows the infoWindow to the selected place upon a marker
+            mapError : false
         }
         
         this.googleBaseUrl = 'http://maps.google.com/maps?q=loc:';
@@ -85,7 +86,9 @@ import NoData from '../../imgs/map-icon-no-data.svg'
             // calculates zoom level
             zoom = Math.floor(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
 
-            if (zoom === Infinity){
+            console.log(`Zoom: ${zoom}`);
+
+            if (zoom === Infinity || zoom === -Infinity){
                 zoom = 15;
             }
 
@@ -119,66 +122,81 @@ import NoData from '../../imgs/map-icon-no-data.svg'
         this.setState({zoom: this.getZoom(this.props.spots, pixelWidth)});
     }
 
-    render() {
-        return (
-            <div className={ this.props.mapVisible ? 'map-container' : 'map-container hidden' } 
-                ref={this.containerRef}>
-                <Map
-                    className='map'
-                    google={this.props.google}
-                    zoom={this.state.zoom}
-                    initialCenter={{lat: this.state.center.lat, lng: this.state.center.lng}}
-                    center={{lat: this.state.center.lat, lng: this.state.center.lng}}
-                    onMouseout={this.handleMapMouseOut}>            
-                    {
-                        this.props.spots.map(
-                            spot => (
-                                <Marker 
-                                    key={spot.spot_id}
-                                    name={spot.name}
-                                    id={spot.spot_id}
-                                    value={spot.currentValue}
-                                    unit={spot.unit}
-                                    parkingLat={spot.accessLoc.lat }
-                                    parkingLng={ spot.accessLoc.lon }
-                                    position={{lat: spot.location.lat, lng: spot.location.lon}}
-                                    icon={this.getIcon(spot)}
-                                    onClick={this.handleMarkerClick} />
-                            )
-                        )
-                    }
-                    {
-                        this.props.spots.map(
-                            spot => (
-                                <InfoWindow 
-                                    key={spot.spot_id} 
-                                    marker={this.state.activeMarker}
-                                    visible={this.state.showingInfoWindow}
-                                    onClose={this.onInfoWindowClose} >
-                                    <div className='info-window'
-                                    > 
-                                        <h2>
-                                            {
-                                                `${this.state.selectedSpot.name} : ` +
-                                                `${this.state.selectedSpot.value} ` +
-                                                `${this.state.selectedSpot.unit}`
-                                            }
-                                        </h2>
-                                        <a
-                                            href={ `${this.googleBaseUrl}${this.state.selectedSpot.parkingLat},${this.state.selectedSpot.parkingLng}` } 
-                                            target="_blank" 
-                                            rel='noopener noreferrer'
-                                        >
-                                            Get Directions
-                                        </a>
-                                    </div>
+    // componentDidCatch(){
+    //     return (
+    //         <div className = 'map-container'></div>
+    //     )
+    // }
 
-                                </InfoWindow>
-                            ))
-                    }
-                </Map>
-            </div>
-        );
+    static getDerivedStateFromError(error) {
+        // Update state so the next render will show the fallback UI.
+        this.setState({ hasError: true });
+      }
+
+    render() {
+        if (this.state.mapError){
+            return ( <div className = 'map-container'> Map Not Available!</div> );
+        } else {
+
+            return (
+                <div className={ this.props.mapVisible ? 'map-container' : 'map-container hidden' } 
+                    ref={this.containerRef}>
+                    <Map
+                        className='map'
+                        google={this.props.google}
+                        zoom={this.state.zoom}
+                        initialCenter={{lat: this.state.center.lat, lng: this.state.center.lng}}
+                        center={{lat: this.state.center.lat, lng: this.state.center.lng}}
+                        onMouseout={this.handleMapMouseOut}>            
+                        {
+                            this.props.spots.map(
+                                spot => (
+                                    <Marker 
+                                        key={spot.spot_id}
+                                        name={spot.name}
+                                        id={spot.spot_id}
+                                        value={spot.currentValue}
+                                        unit={spot.unit}
+                                        parkingLat={spot.accessLoc.lat }
+                                        parkingLng={ spot.accessLoc.lon }
+                                        position={{lat: spot.location.lat, lng: spot.location.lon}}
+                                        icon={this.getIcon(spot)}
+                                        onClick={this.handleMarkerClick} />
+                                )
+                            )
+                        }
+                        {
+                            this.props.spots.map(
+                                spot => (
+                                    <InfoWindow 
+                                        key={spot.spot_id} 
+                                        marker={this.state.activeMarker}
+                                        visible={this.state.showingInfoWindow}
+                                        onClose={this.onInfoWindowClose} >
+                                        <div className='info-window'
+                                        > 
+                                            <h2>
+                                                {
+                                                    `${this.state.selectedSpot.name} : ` +
+                                                    `${this.state.selectedSpot.value} ` +
+                                                    `${this.state.selectedSpot.unit}`
+                                                }
+                                            </h2>
+                                            <a
+                                                href={ `${this.googleBaseUrl}${this.state.selectedSpot.parkingLat},${this.state.selectedSpot.parkingLng}` } 
+                                                target="_blank" 
+                                                rel='noopener noreferrer'>
+                                                Get Directions
+                                            </a>
+                                        </div>
+
+                                    </InfoWindow>
+                                ))
+                        }
+                    </Map>
+                </div>
+            );
+        }
     }
 }
 
