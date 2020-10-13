@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "13a51076f2af97022f4904dadaff75bb",
+    "revision": "283475886460d48c1fdb7ba248423541",
     "url": "/spokane-surf-report/index.html"
   },
   {
-    "revision": "5733d099227074b883d9",
-    "url": "/spokane-surf-report/static/css/main.f0204cc6.chunk.css"
+    "revision": "3a1841dfdac1f1d36f67",
+    "url": "/spokane-surf-report/static/css/main.04f1fa60.chunk.css"
   },
   {
-    "revision": "04fe71b1124020341113",
-    "url": "/spokane-surf-report/static/js/2.0f1f59e1.chunk.js"
+    "revision": "b1eca77ac0b2e36b3ace",
+    "url": "/spokane-surf-report/static/js/2.c2b88d81.chunk.js"
   },
   {
     "revision": "54fd6816419f7824e2804745930c9117",
-    "url": "/spokane-surf-report/static/js/2.0f1f59e1.chunk.js.LICENSE.txt"
+    "url": "/spokane-surf-report/static/js/2.c2b88d81.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5733d099227074b883d9",
-    "url": "/spokane-surf-report/static/js/main.97a98aee.chunk.js"
+    "revision": "3a1841dfdac1f1d36f67",
+    "url": "/spokane-surf-report/static/js/main.f97d58d5.chunk.js"
   },
   {
     "revision": "3329e4f277050983abe2",
@@ -46,6 +46,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "0ced4a3b332e6ea97d30fa137cee464f",
     "url": "/spokane-surf-report/static/media/Quicksand-SemiBold.0ced4a3b.ttf"
+  },
+  {
+    "revision": "eef7c8334572c97e3713e759dd05d61e",
+    "url": "/spokane-surf-report/static/media/icon-contact.eef7c833.svg"
+  },
+  {
+    "revision": "36e3b190e217993c27be6d6abb191155",
+    "url": "/spokane-surf-report/static/media/icon-help.36e3b190.svg"
   },
   {
     "revision": "cdabfdfd1aa68b47de5785d9aa14cca1",
@@ -78,5 +86,13 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e033c19de635b4d94a4f803abfd09ea0",
     "url": "/spokane-surf-report/static/media/map-icon-thumbs-up.e033c19d.svg"
+  },
+  {
+    "revision": "774313c641b1c8b94b6e4b4fff166bd0",
+    "url": "/spokane-surf-report/static/media/map_snippet.774313c6.jpg"
+  },
+  {
+    "revision": "feb428efbe891986306e534eb5217ae2",
+    "url": "/spokane-surf-report/static/media/surf_app_snippet.feb428ef.jpg"
   }
 ]);
