@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/spokane-surf-report/static/css/main.04f1fa60.chunk.css",
-    "main.js": "/spokane-surf-report/static/js/main.193844c7.chunk.js",
-    "main.js.map": "/spokane-surf-report/static/js/main.193844c7.chunk.js.map",
+    "main.js": "/spokane-surf-report/static/js/main.e70d025d.chunk.js",
+    "main.js.map": "/spokane-surf-report/static/js/main.e70d025d.chunk.js.map",
     "runtime-main.js": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js",
     "runtime-main.js.map": "/spokane-surf-report/static/js/runtime-main.3bcce5b7.js.map",
     "static/js/2.ec225c42.chunk.js": "/spokane-surf-report/static/js/2.ec225c42.chunk.js",
     "static/js/2.ec225c42.chunk.js.map": "/spokane-surf-report/static/js/2.ec225c42.chunk.js.map",
     "index.html": "/spokane-surf-report/index.html",
-    "precache-manifest.02ab3e3422116f89f9bef1e204638392.js": "/spokane-surf-report/precache-manifest.02ab3e3422116f89f9bef1e204638392.js",
+    "precache-manifest.503a9faad750d18689de211cb02c23d2.js": "/spokane-surf-report/precache-manifest.503a9faad750d18689de211cb02c23d2.js",
     "service-worker.js": "/spokane-surf-report/service-worker.js",
     "static/css/main.04f1fa60.chunk.css.map": "/spokane-surf-report/static/css/main.04f1fa60.chunk.css.map",
     "static/js/2.ec225c42.chunk.js.LICENSE.txt": "/spokane-surf-report/static/js/2.ec225c42.chunk.js.LICENSE.txt",
@@ -31,6 +31,6 @@
     "static/js/runtime-main.3bcce5b7.js",
     "static/js/2.ec225c42.chunk.js",
     "static/css/main.04f1fa60.chunk.css",
-    "static/js/main.193844c7.chunk.js"
+    "static/js/main.e70d025d.chunk.js"
   ]
 }
