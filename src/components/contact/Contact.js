@@ -16,6 +16,7 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 
 
+
 import '../../style/contact.scss'
 
  class Contact extends Component {

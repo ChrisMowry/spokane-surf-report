@@ -1,0 +1,328 @@
+[
+    {
+        "spot_id": 1,
+        "name":"Corbin",
+        "location":{"lat":47.704226350842866,"lon":-116.98678090447382},
+        "accessLoc":{"lat":47.704406941391035,"lon":-116.98791081116408},
+        "min":17500,
+        "max":24000,
+        "optimumFlowLow_i" : 20500,
+        "optimumFlowHigh_i" : 23000, 
+        "site":12419000,
+		"gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"
+    },
+    {
+        "spot_id": 2,
+        "name":"Dead Dog",
+        "location":{"lat":47.69866969949513,"lon":-117.04397406915203},
+        "accessLoc":{"lat":47.69977737067392,"lon":-117.04339913207552},
+        "min":11000,
+        "max":25000,
+        "optimumFlowLow_i" : 17500,
+        "optimumFlowHigh_i" : 24000, 
+        "site":12419000,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
+        "kayakable":true,
+        "boardable":false,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"
+    },   
+    {
+        "spot_id": 3,
+        "name":"Duplex",
+        "location":{"lat":47.673749394544146,"lon":-117.18157701091727},
+        "accessLoc":{"lat":47.671518155711695,"lon":-117.17998552452912},
+        "min":6000,
+        "max":9000,
+        "optimumFlowLow_i" : 17500,
+        "optimumFlowHigh_i" : 24000, 
+        "site":12419000,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
+        "kayakable":true,
+        "boardable":false,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"        
+    },
+    {
+        "spot_id": 4,
+        "name":"Flower Power",
+        "location":{"lat":47.641006142260075,"lon":-117.44431753747203},
+        "accessLoc":{"lat":47.64082975825719,"lon":-117.4429515766728},
+        "min":4.4,
+        "max":4.7,
+        "optimumFlowLow_i" : 17500,
+        "optimumFlowHigh_i" : 24000, 
+        "site":12424000,
+		"gageType":"USGS",
+        "unit":"ft",
+        "parameter":"00065",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"
+    },
+    {
+        "spot_id": 5,
+        "name":"Mini Climax",
+        "location":{"lat":47.6763419421849,"lon":-117.18028651416395},
+        "accessLoc":{"lat":47.671518155711695,"lon":-117.17998552452912},
+        "min":5700,
+        "max":7500,
+        "optimumFlowLow_i" : 17500,
+        "optimumFlowHigh_i" : 24000, 
+        "site":12419000,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"
+    },
+    {
+        "spot_id": 6,
+        "name":"Sullivan",
+        "location":{"lat":47.67375333360827,"lon":-117.18142637498856},
+        "accessLoc":{"lat":47.671518155711695,"lon":-117.17998552452912},
+        "min":2600,
+        "max":3400,
+        "optimumFlowLow_i" : 2700,
+        "optimumFlowHigh_i" : 3300, 
+        "site":12419000,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
+        "kayakable":true,
+        "boardable":false,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"
+    },
+    {
+        "spot_id": 7,
+        "name":"Trailer Park",
+        "location":{"lat":47.70945756623944,"lon":-116.96675131875466},
+        "accessLoc":{"lat":47.71044223021127,"lon":-116.96900709423221},
+        "min":3500,
+        "max":6500,
+        "optimumFlowLow_i" : 17500,
+        "optimumFlowHigh_i" : 24000, 
+        "site":12419000,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+                   {
+                        "label":"Avista",
+                        "url":"https://www.avistautilities.com"
+                   },
+                   {
+                       "label":"Other Site",
+                       "url":"https://www.google.com"
+                   }
+                ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"
+    },
+    {
+        "spot_id": 8,
+        "name":"Zoo",
+        "location":{"lat":47.67895380341396,"lon":-117.21030008548784},
+        "accessLoc":{"lat":47.68172980646827,"lon":-117.22305133785378},
+        "min":2400,
+        "max":2750,
+        "optimumFlowLow_i" : 2500,
+        "optimumFlowHigh_i" : 2600, 
+        "site":12419000,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+		"flowInfo":["2200 - 2299: green wave","2300 - 2350: breaking wave"],
+        "links": [
+            {
+                 "label":"Avista",
+                 "url":"https://www.avistautilities.com"
+            },
+            {
+                "label":"Other Site",
+                "url":"https://www.google.com"
+            }
+         ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["easy access","good eddy service"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"medium"
+    },
+    {
+        "spot_id": 9,
+        "name":"Cyclops",
+        "location":{"lat":47.71085203331206,"lon":-117.50083475761053},
+        "accessLoc":{"lat":47.710095963583115,"lon":-117.49959010672329},
+        "min":35000,
+        "max":45000,
+        "optimumFlowLow_i" : 35000,
+        "optimumFlowHigh_i" : 45000, 
+        "site":12422500,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"High Water Park and Play does not get any better than this! Although it is large it is really flushy so watch the corners of the wave on the surge as they tend to disappear. Not for the faint of heart this feature comes in at 35,000 cfs and gets better with more water. Be sure to bring a camera.",
+        "links": [
+            {
+                 "label":"Gage",
+                 "url":"https://waterdata.usgs.gov/nwis/uv?site_no=12422500"
+            }
+         ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["large wave hole"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"hard"
+    },
+    {
+        "spot_id": 10,
+        "name":"Cliff Left",
+        "location":{"lat":47.69351690624765,"lon":-117.49560904885374},
+        "accessLoc":{"lat":47.69744289801114,"lon":-117.47890067538664},
+        "min":6000,
+        "max":9000,
+        "optimumFlowLow_i" : 6000,
+        "optimumFlowHigh_i" : 9000, 
+        "site":12422500,
+        "gageType":"USGS",
+        "unit":"cfs",
+        "parameter":"00060",
+        "desc":"Incredible green wave with marginal eddy service. This is typically a catch on the fly wave, but the eddy can be cought for repeat rides.",
+        "links": [
+            {
+                 "label":"Gage",
+                 "url":"https://waterdata.usgs.gov/nwis/uv?site_no=12422500"
+            }
+         ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["wide green wave","catch on the fly"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"easy"
+    },
+    {
+        "spot_id": 11,
+        "name":"Dirty Mother",
+        "location":{"lat":47.503071381835944,"lon":-117.34330761645792},
+        "accessLoc":{"lat":47.50306594593574,"lon":-117.34390574906153},
+        "min":6.0,
+        "max":7.0,
+        "optimumFlowLow_i" : 6.0,
+        "optimumFlowHigh_i" : 7.0, 
+        "site":12424000,
+        "gageType":"USGS",
+        "unit":"ft",
+        "parameter":"00065",
+        "desc":"Large brown wave with eddie service, but dont let the size fool you, this feature is very shallow under the wave.",
+        "links": [
+            {
+                 "label":"Gage",
+                 "url":"https://waterdata.usgs.gov/nwis/uv?site_no=12424000"
+            }
+         ],
+        "kayakable":true,
+        "boardable":true,
+		"features":["wide green wave","shallow feature"],
+		"tricks":["spins", "loops", "cart wheels"],
+		"difficulty":"easy"
+    }
+]

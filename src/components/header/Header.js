@@ -34,7 +34,7 @@ import '../../style/header.scss'
     render() {
         return (
             <header>
-                <img src={require("../../imgs/logo-surf-spokane.svg")} alt="Spokane Surf Logo" />
+                <img src={require("../../imgs/logo-surf-spokane.svg").default} alt="Spokane Surf Logo" />
                 <h1>Spokane Surf Report</h1>
                 <input id="map-button" className="map-button" type="checkbox" 
                 checked={this.props.mapVisible} onClick={this.handleClick} readOnly />

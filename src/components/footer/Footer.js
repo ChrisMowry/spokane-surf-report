@@ -52,11 +52,11 @@ import '../../style/footer.scss';
                 </div>
                 <div className="options-bar">
                     <Link className='option' to='/help'>
-                        <img src={require("../../imgs/icon-help.svg")} alt='help'/>
+                        <img src={require("../../imgs/icon-help.svg").default} alt='help'/>
                         <h2>Help</h2>
                     </Link>
                     <Link className='option' to='/contact'>
-                        <img src={require("../../imgs/icon-contact.svg")} alt='contact'/>
+                        <img src={require("../../imgs/icon-contact.svg").default} alt='contact'/>
                         <h2>Contact</h2>
                     </Link>
                 </div>

@@ -11,8 +11,10 @@
 */
 
 import React, { Component } from 'react';
+import {trackPromise} from 'react-promise-tracker';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import LoadingIndicator from './components/loading_indicator/LoadingIndicator';
 import MapContainer from './components/map/MapContainer';
 import DataCardDeck from './components/data_cards/DataCardDeck';
 import {properties} from './resource/Config';
@@ -65,40 +67,40 @@ class App extends Component {
     }
 
     getSurfSpots(){
-
        // fetches surf spots from url
-       fetch( properties.overview_url, {
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-         }})
-        .then((response) => response.json())
-        .then((spots) => {
+        trackPromise(
+            fetch( properties.overview_url, {
+                headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+                }})
+                .then((response) => response.json())
+                .then((spots) => {
 
-            let spotName = this.props.match.params.spot;
-            let gageNumber = parseInt(this.props.match.params.gage);
+                    let spotName = this.props.match.params.spot;
+                    let gageNumber = parseInt(this.props.match.params.gage);
 
-            // filters for url paramater for spot
-            if (spotName){
-                spots = spots.filter((spot) => spot.name.toLowerCase() === spotName.toLowerCase());
-                this.setState({ mapVisible : true, expandedCards : true });
-            }
+                    // filters for url paramater for spot
+                    if (spotName){
+                        spots = spots.filter((spot) => spot.name.toLowerCase() === spotName.toLowerCase());
+                        this.setState({ mapVisible : true, expandedCards : true });
+                    }
 
-            // filters for path parameter for gage number
-            if (gageNumber){
-                spots = spots.filter((spot) => spot.site === gageNumber );
+                    // filters for path parameter for gage number
+                    if (gageNumber){
+                        spots = spots.filter((spot) => spot.site === gageNumber );
 
-                // if there is only 1 record, expand the map and the card
-                if (spots.length === 1){
-                    this.setState({ mapVisible: true, expandedCards : true  })
-                }
-            }
+                        // if there is only 1 record, expand the map and the card
+                        if (spots.length === 1){
+                            this.setState({ mapVisible: true, expandedCards : true  })
+                        }
+                    }
 
-            this.setState({ 
-                surfSpots : spots,
-                filteredSpots : spots.sort(compareSpots)
-            })
-        })
+                    this.setState({ 
+                        surfSpots : spots,
+                        filteredSpots : spots.sort(compareSpots)
+                    })
+            }));
     }
 
     componentDidMount(){
@@ -125,6 +127,7 @@ class App extends Component {
                             mapVisible={ this.state.mapVisible }
                             filterSpots={this.filterSpots} 
                             unfilterSpots={this.unfilterSpots} />
+                    <LoadingIndicator/>
                     <DataCardDeck spots={ this.state.filteredSpots }
                              expanded={this.state.expandedCards}/>
                     <Footer />

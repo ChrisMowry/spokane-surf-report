@@ -1,0 +1,14 @@
+@import 'theme';
+
+.loading-container{
+    display: block;
+    align-self: center;
+    justify-self: center;
+    margin: auto 0;
+    .load-gif{
+        height: $head-height;
+        width: $head-height;
+        align-self: center;
+        justify-self: center;
+    }
+}

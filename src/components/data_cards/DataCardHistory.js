@@ -75,7 +75,7 @@ import '../../style/datacard-history.scss'
         const { history = [] } = this.props.spotDetail;
         const object = history.find((record) => record.month === monthNumber && record.day === day, {});
 
-        return object === undefined ? 0 : object.percent;
+        return object === undefined ? 0 : object.value;
     }
 
     getDays(){
