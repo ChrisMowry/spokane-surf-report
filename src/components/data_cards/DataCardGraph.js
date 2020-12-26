@@ -17,10 +17,6 @@ import '../../style/datacard.scss'
 
  class DataCardGraph extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    // }
-
 
     drawLineGraph(values, min, max){
 

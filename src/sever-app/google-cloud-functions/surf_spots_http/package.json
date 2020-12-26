@@ -1,0 +1,13 @@
+{
+    "name": "surfspot-http",
+    "version": "0.0.1",
+    "dependencies": {
+      "@google-cloud/pubsub": "^0.18.0",
+      "@google-cloud/firestore":"^4.8.0",
+      "firebase": "^8.2.0",
+      "firebase-admin": "^9.4.2",
+      "firebase-functions": "^3.13.0",
+      "node-fetch":"^2.6.1",
+      "abort-controller":"^3.0.0"
+    }
+}

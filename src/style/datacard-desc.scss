@@ -80,12 +80,14 @@
             display: -webkit-flex;
             display: -ms-flexbox;
             display: flex;
-
-            .value{ 
-                font-weight: 300;
-                color: $primary-color;
-                margin-left: 0;
-                padding-left: 0; 
+            a{
+                margin-left: 0px;
+                .value{ 
+                    font-weight: 300;
+                    color: $primary-color;
+                    margin-left: 0;
+                    padding-left: 0; 
+                }
             }
         }
     }

@@ -28,7 +28,7 @@ import '../../style/datacard.scss'
     }
 
     fetchData(){
-        fetch(properties.detail_url, {
+        fetch(`${properties.detail_url}/${encodeURI(this.props.spot.name)}`, {
             headers : { 
               'Content-Type': 'application/json',
               'Accept': 'application/json'

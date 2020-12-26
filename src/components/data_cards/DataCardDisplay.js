@@ -54,9 +54,9 @@ import '../../style/datacard.scss'
     }
 
     getFlowChangeClass(){
-        if ( this.getFlowChange() > 0) {
+        if ( this.props.spot.currentChange > 0) {
             return 'flow-positive';
-        } else if ( this.getFlowChange() < 0 ) {
+        } else if ( this.props.spot.currentChange  < 0 ) {
             return 'flow-negative';
         } else {
             return 'flow-flat'
@@ -69,11 +69,11 @@ import '../../style/datacard.scss'
 
         switch(status) {
             case 'spot-optimum' :
-              return <img src={require("../../imgs/icon-ok-hand.svg")} alt="Optimum Icon" />
+              return <img src={require("../../imgs/icon-ok-hand.svg").default} alt="Optimum Icon" />
             case 'spot-in':
-              return <img src={require("../../imgs/icon-thumbs-up.svg")} alt="Surfable Icon" />
+              return <img src={require("../../imgs/icon-thumbs-up.svg").default} alt="Surfable Icon" />
             case 'spot-out':
-                return <img src={require("../../imgs/icon-thumbs-down.svg")} alt="Not Surfable Icon" />
+                return <img src={require("../../imgs/icon-thumbs-down.svg").default} alt="Not Surfable Icon" />
             default:
               return "";
           }
@@ -83,7 +83,7 @@ import '../../style/datacard.scss'
 
         // destructures the surf spot object
         const {name = 'Unknown', currentValue = 0, min = 0, max = 0, unit = 'unk'} = this.props.spot;
-        const flowChange = this.getFlowChange();
+        const flowChange = this.props.spot.currentChange;
         return (
             <div className='data-card-display'>
                 <div className='status-icon'>
@@ -95,7 +95,7 @@ import '../../style/datacard.scss'
                     <div>
                         <h3>{ `${ formatNumber(currentValue) } ${unit}` }</h3>
                         <h5 className={ this.getFlowChangeClass() }>
-                            { `${ flowChange > 0 ? "+" : "" }${ formatNumber(flowChange) }` }
+                            { `${ flowChange  > 0 ? "+" : "" }${ formatNumber(flowChange.toFixed(2)) }` }
                         </h5>
                     </div>
                     <h4>{ `range: ${ formatNumber(min) } - ${ formatNumber(max) } ${ unit }` }</h4>

@@ -29,6 +29,20 @@ import NoData from '../../imgs/map-icon-no-data.svg'
 
     }
 
+    getZIndex(spot){
+        // determines which map icon to use
+        const status = getSpotStatus(spot);
+        if( status === 'spot-optimum' ){
+            return 100;
+        } else if ( status === 'spot-in') {
+            return 10;
+        } else if ( status === 'spot-out'){
+            return 5;
+        } else {
+            return 1;
+        }
+    }
+
     getIcon(spot){
 
         // determines which map icon to use
@@ -89,11 +103,7 @@ import NoData from '../../imgs/map-icon-no-data.svg'
             console.log(`Zoom: ${zoom}`);
 
             if (zoom === Infinity || zoom === -Infinity){
-                zoom = 15;
-            }
-
-            if (zoom > 15) {
-                zoom = 15
+                zoom = 9;
             }
         }
 
@@ -122,15 +132,9 @@ import NoData from '../../imgs/map-icon-no-data.svg'
         this.setState({zoom: this.getZoom(this.props.spots, pixelWidth)});
     }
 
-    // componentDidCatch(){
-    //     return (
-    //         <div className = 'map-container'></div>
-    //     )
-    // }
-
     static getDerivedStateFromError(error) {
         // Update state so the next render will show the fallback UI.
-        this.setState({ hasError: true });
+        this.setState({ mapError: true });
       }
 
     render() {
@@ -161,6 +165,7 @@ import NoData from '../../imgs/map-icon-no-data.svg'
                                         parkingLng={ spot.accessLoc.lon }
                                         position={{lat: spot.location.lat, lng: spot.location.lon}}
                                         icon={this.getIcon(spot)}
+                                        zIndex={this.getZIndex(spot)}
                                         onClick={this.handleMarkerClick} />
                                 )
                             )

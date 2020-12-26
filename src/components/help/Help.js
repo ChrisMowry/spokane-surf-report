@@ -37,26 +37,26 @@ import '../../style/help.scss'
                             <h3>Symbols</h3>
                             <ul>
                                 <li>
-                                <img src={require("../../imgs/icon-ok-hand.svg")} alt="Optimum Icon" />
+                                <img src={require("../../imgs/icon-ok-hand.svg").default} alt="Optimum Icon" />
                                 <p>Surf spot is best at this level.</p>
                                 </li>
                                 <li>
-                                    <img src={require("../../imgs/icon-thumbs-up.svg")} alt="Surfable Icon" />
+                                    <img src={require("../../imgs/icon-thumbs-up.svg").default} alt="Surfable Icon" />
                                     <p>Surf spot is surfable at this level.</p>
                                 </li>
                                 <li>
-                                    <img src={require("../../imgs/icon-thumbs-down.svg")} alt="Not Surfable Icon" />
+                                    <img src={require("../../imgs/icon-thumbs-down.svg").default} alt="Not Surfable Icon" />
                                     <p>Surf spot is not surfable at this level.</p>
                                 </li>
                             </ul>
                         </div>
                         <div className="display-def-container">
                             <h3>Surf Spot Display</h3>
-                            <img src={require("../../imgs/surf_app_snippet.jpg")} alt="Display Definition" />
+                            <img src={require("../../imgs/surf_app_snippet.jpg").default} alt="Display Definition" />
                         </div>
                         <div className="display-def-container">
                             <h3>Directions</h3>
-                            <img src={require("../../imgs/map_snippet.jpg")} alt="Display Definition" />
+                            <img src={require("../../imgs/map_snippet.jpg").default} alt="Display Definition" />
                         </div>
                         <div className="button-box">
                             <Link to='/'>Close</Link>

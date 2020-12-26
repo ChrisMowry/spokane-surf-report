@@ -26,7 +26,9 @@ import '../../style/datacard-desc.scss'
                 <div className='overview-box'>
                     <div className='gage-box'>
                         <h4>Gage:</h4>
+                        <a href={ this.usgs_site } target="_blank" rel='noopener noreferrer'>
                         <h4 className='value'>{this.props.spot.site }</h4>
+                        </a>
                     </div>
                     {
                         this.props.spotDetail.difficulty !== undefined
