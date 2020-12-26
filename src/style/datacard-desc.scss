@@ -40,13 +40,12 @@
             width: 50vw;
 
             a { 
+                //display: inline-block;
                 font-size: 0.6rem;
                 margin: 0;
             }
         }
     }
-
-
 
     a:before {
         content: "";
@@ -67,12 +66,13 @@
     }
 
     .overview-box{
+        //height: 1.4rem;
         width: 100%;
         margin: 0.1rem 0 0.1rem 0;
+        background-color: $fifth-color;
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        background-color: $fifth-color;
         justify-content: space-between;       
         
         .gage-box, .diff-box{
@@ -80,6 +80,7 @@
             display: -webkit-flex;
             display: -ms-flexbox;
             display: flex;
+            flex-direction: row;
             a{
                 margin-left: 0px;
                 .value{ 

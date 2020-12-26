@@ -23,25 +23,27 @@ import '../../style/datacard-desc.scss'
     render() {
         return (
             <div className='data-card-desc'>
-                <div className='overview-box'>
-                    <div className='gage-box'>
-                        <h4>Gage:</h4>
-                        <a href={ this.usgs_site } target="_blank" rel='noopener noreferrer'>
-                        <h4 className='value'>{this.props.spot.site }</h4>
-                        </a>
+                <div>
+                    <div className='overview-box'>
+                        <div className='gage-box'>
+                            <h4>Gage:</h4>
+                            <a href={ this.usgs_site } target="_blank" rel='noopener noreferrer'>
+                                <h4 className='value'>{this.props.spot.site }</h4>
+                            </a>
+                        </div>
+                        {
+                            typeof this.props.spotDetail.difficulty !== 'undefined'
+                            ? <div className='diff-box'>
+                                <h4>Difficulty:</h4>
+                                <h4 className='value'>{ ` ${this.props.spotDetail.difficulty }` }</h4>
+                            </div>
+                            : ""
+                        }
                     </div>
-                    {
-                        this.props.spotDetail.difficulty !== undefined
-                        ? <div className='diff-box'>
-                            <h4>Difficulty:</h4>
-                            <h4 className='value'>{ ` ${this.props.spotDetail.difficulty }` }</h4>
-                          </div>
-                        : ""
-                    }
                 </div>
                 {
                     // Gage Site 
-                    this.props.spot.siteName !== undefined
+                    typeof this.props.spot.siteName !== 'undefined'
                     ? <div>
                         <h4>Gage Name:</h4>
                         <a href={ this.usgs_site } target="_blank" rel='noopener noreferrer'>
@@ -52,7 +54,7 @@ import '../../style/datacard-desc.scss'
                 }
                 {
                     // Description 
-                    this.props.spotDetail.desc !== undefined
+                    typeof this.props.spotDetail.desc !== 'undefined'
                     ? <div className='describe-box'>
                             <h4>Description:</h4>
                                 <p>{ this.props.spotDetail.desc }</p>
@@ -61,7 +63,7 @@ import '../../style/datacard-desc.scss'
                 }
                 {
                     // Flow info 
-                    this.props.spotDetail.flowInfo !== undefined 
+                    typeof this.props.spotDetail.flowInfo !== 'undefined'
                     ? <div className='info-box'>
                         <h4>Flow Info:</h4>
                         <ul>
@@ -76,7 +78,7 @@ import '../../style/datacard-desc.scss'
                 }
                 {
                     // Links
-                    this.props.spotDetail.links !== undefined 
+                    typeof this.props.spotDetail.links !== 'undefined'
                     ? <div className='info-box'>
                         <h4>Links:</h4>
                         <ul>
@@ -96,7 +98,7 @@ import '../../style/datacard-desc.scss'
                 }
                 {
                     // Features
-                    this.props.spotDetail.features !== undefined 
+                    typeof this.props.spotDetail.features !== 'undefined'
                     ? <div className='info-box'>
                         <h4>Features:</h4>
                         <p> { this.props.spotDetail.features.join(', ') }</p>
@@ -105,7 +107,7 @@ import '../../style/datacard-desc.scss'
                 }
                 {
                     // Tricks
-                    this.props.spotDetail.tricks !== undefined 
+                    typeof this.props.spotDetail.tricks !== 'undefined'
                     ? <div className='info-box'>
                         <h4>Tricks:</h4>
                         <p> { this.props.spotDetail.tricks.join(', ') }</p>
